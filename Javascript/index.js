@@ -2,18 +2,14 @@
    MAIN.JS - Script unificado do site (Index + Projetos + Store + Sobre)
    ========================================================== */
 
-
 /* --------------------------- LOGO & HOME --------------------------- */
-// Seleção dos elementos
 const logoLink = document.querySelector(".logo");
 const inicioLink = document.querySelector('header nav a');
 
-// Função para ir para a página inicial
 function goToInicio() {
   window.location.href = "inicial.html";
 }
 
-// Eventos
 if (logoLink) {
   logoLink.addEventListener("click", (e) => {
     e.preventDefault();
@@ -27,7 +23,6 @@ if (inicioLink) {
   });
 }
 
-
 /* --------------------------- INDEX - MECÂNICA WORK & CONTACT --------------------------- */
 const workBtns = document.querySelectorAll(".btn-work");
 const contactBtns = document.querySelectorAll(".btn-contact");
@@ -37,7 +32,6 @@ const sobreSection = document.getElementById("sobre");
 const projetosContainer = document.querySelector(".projetos");
 const sidebarRight = document.getElementById("sidebar-right");
 
-// Função mostrar Work
 function showWork() {
   if (workSection && contactSection) {
     workSection.classList.add("active");
@@ -47,7 +41,6 @@ function showWork() {
   if (sidebarRight) sidebarRight.style.display = "block";
 }
 
-// Função mostrar Contact
 function showContact() {
   if (contactSection && workSection) {
     contactSection.classList.add("active");
@@ -57,7 +50,6 @@ function showContact() {
   if (sidebarRight) sidebarRight.style.display = "none";
 }
 
-// Eventos dos botões
 workBtns.forEach(btn => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -154,24 +146,37 @@ if (projetosContainer) {
   projetos.forEach((proj, index) => {
     const card = document.createElement("div");
     card.classList.add("card");
-    card.innerHTML = `
-      <img src="${proj.imagem}" alt="${proj.titulo}">
-      <div class="card-content">
-        <h3>${proj.titulo}</h3>
-        <p>${proj.descricao}</p>
-      </div>
-    `;
+
+    const img = document.createElement("img");
+    img.src = proj.imagem;
+    img.alt = proj.titulo;
+
+    const cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
+
+    const h3 = document.createElement("h3");
+    h3.textContent = proj.titulo;
+
+    const p = document.createElement("p");
+    p.textContent = proj.descricao;
+
+    cardContent.appendChild(h3);
+    cardContent.appendChild(p);
+
+    if (index % 2 !== 0) {
+      card.appendChild(cardContent);
+      card.appendChild(img);
+    } else {
+      card.appendChild(img);
+      card.appendChild(cardContent);
+    }
 
     if (proj.link) {
       card.style.cursor = "pointer";
       card.addEventListener("click", () => {
+        // Se for link externo, adicionar rel="noopener noreferrer"
         window.location.href = proj.link;
       });
-    }
-
-    if (index % 2 !== 0) {
-      card.querySelector("img").style.order = 2;
-      card.querySelector(".card-content").style.order = 1;
     }
 
     projetosContainer.appendChild(card);
@@ -186,10 +191,7 @@ if (projetosContainer) {
   });
 }
 
-
-
-
-// Ajuste de altura da sidebar
+/* --------------------------- AJUSTE DE SIDEBAR --------------------------- */
 function ajustarSidebar() {
   const footer = document.querySelector("footer");
   if (!sidebarRight || !footer) return;
@@ -198,6 +200,7 @@ function ajustarSidebar() {
   const sidebarTop = sidebarRight.getBoundingClientRect().top;
   sidebarRight.style.maxHeight = `${windowHeight - sidebarTop - footerHeight - 20}px`;
 }
+
 window.addEventListener("DOMContentLoaded", () => {
   ajustarSidebar();
   if (workSection) showWork();
@@ -206,8 +209,7 @@ window.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("resize", ajustarSidebar);
 window.addEventListener("scroll", ajustarSidebar);
 
-
-/* --------------------------- MENU LATERAL (MOBILE) --------------------------- */
+/* --------------------------- MENU MOBILE --------------------------- */
 const menuToggle = document.getElementById("menu-toggle");
 const menu = document.getElementById("menu");
 const closeBtn = document.getElementById("close-btn");
@@ -226,31 +228,22 @@ if (submenus) {
   });
 }
 
-
-/* --------------------------- SALVAR E RESTAURAR SCROLL --------------------------- */
-// Salvar posição do scroll antes de sair da página
+/* --------------------------- SCROLL PERSISTENTE --------------------------- */
 function saveScrollPosition() {
   localStorage.setItem("scrollPosition", window.scrollY);
 }
 
-// Restaurar posição do scroll ao carregar
 function restoreScrollPosition() {
   const savedPosition = localStorage.getItem("scrollPosition");
   if (savedPosition !== null) {
     window.scrollTo(0, parseInt(savedPosition));
-    localStorage.removeItem("scrollPosition"); // limpa para não aplicar sempre
+    localStorage.removeItem("scrollPosition");
   }
 }
 
-// Aplica apenas na página index.html
 if (projetosContainer) {
-  // Antes de abrir qualquer projeto, salvar posição
   document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("click", () => {
-      saveScrollPosition();
-    });
+    card.addEventListener("click", () => saveScrollPosition());
   });
-
-  // Quando voltar pro index, restaurar posição
   window.addEventListener("DOMContentLoaded", restoreScrollPosition);
 }
