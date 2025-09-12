@@ -1,0 +1,49 @@
+/* ====== Seção Contato ====== */
+#contato {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f9f9f9;
+  color: #222;
+}
+
+#contato h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #18191b;
+}
+
+#contato p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* Cores específicas por rede */
+.social-links a.instagram { background: #18191b; }
+.social-links a.whatsapp { background: #18191b; }
+.social-links a.linkedin { background: #18191b; }
+
+.social-links a:hover { opacity: 0.85; }
+
+
+
