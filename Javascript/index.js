@@ -139,6 +139,11 @@ link: "projeto09.html" },
 imagem: "img/Fantastic Four.jpg", 
 link: "projeto10.html" },
 
+{ titulo: "PragX – Proteção Profissional contra Pragas", 
+  descricao: "Este projeto foi desenvolvido para uma empresa do segmento de controle de pragas urbanas ",
+imagem: "img/PragX03.png", 
+link: "projeto11.html" },
+
 
 ];
 
