@@ -69,6 +69,25 @@ contactBtns.forEach(btn => {
 /* --------------------------- INDEX - LISTA DE PROJETOS --------------------------- */
 const projetos = [
 
+{ titulo: "Social Media & Resort Concept Design", 
+  descricao: "Projeto de identidade visual e social media inspirado no pinguim-de-Magalhães 🐧✨ ",
+imagem: "img/Litoral Magalhão design.jpg", 
+link: "projeto07.html" },
+
+
+
+{ titulo: "Branding Retrô | Atomic Diner – Identidade Completa", 
+  descricao: "A identidade visual do Atomic Diner nasceu a partir da estética das clássicas hamburguerias americanas dos anos 50. ",
+imagem: "img/01.jpg", 
+link: "projeto08.html" },
+
+{ titulo: "PragX – Proteção Profissional contra Pragas", 
+  descricao: "Este projeto foi desenvolvido para uma empresa do segmento de controle de pragas urbanas ",
+imagem: "img/PragX03.png", 
+link: "projeto11.html" },
+
+
+
   { titulo: "The Mandalorian — Fan Poster Art", 
   descricao: "Original fanart from the Star Wars universe", 
 imagem: "projeto02.img/The Mandalorian 01.jpg", 
@@ -112,19 +131,6 @@ link: "projeto06.html" },
 
 
 
-{ titulo: "Social Media & Resort Concept Design", 
-  descricao: "Projeto de identidade visual e social media inspirado no pinguim-de-Magalhães 🐧✨ ",
-imagem: "img/Litoral Magalhão design.jpg", 
-link: "projeto07.html" },
-
-
-
-{ titulo: "Branding Retrô | Atomic Diner – Identidade Completa", 
-  descricao: "A identidade visual do Atomic Diner nasceu a partir da estética das clássicas hamburguerias americanas dos anos 50. ",
-imagem: "img/01.jpg", 
-link: "projeto08.html" },
-
-
 
 { titulo: "The New Son of Krypton", 
   descricao: "Concept art inspired by James Gunn's Superman, in the new DC film. ",
@@ -139,10 +145,6 @@ link: "projeto09.html" },
 imagem: "img/Fantastic Four.jpg", 
 link: "projeto10.html" },
 
-{ titulo: "PragX – Proteção Profissional contra Pragas", 
-  descricao: "Este projeto foi desenvolvido para uma empresa do segmento de controle de pragas urbanas ",
-imagem: "img/PragX03.png", 
-link: "projeto11.html" },
 
 
 ];
