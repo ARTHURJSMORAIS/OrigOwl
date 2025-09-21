@@ -63,9 +63,17 @@ footer { background:#111; color:#fff; text-align:center; padding:20px; margin-to
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px; /* bordas arredondadas (opcional) */
+  
 }
 
+
+
+.plyr {
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0px 6px 16px rgba(198, 197, 197, 0.25);
+}
 
 
 
@@ -127,3 +135,8 @@ footer { background:#111; color:#fff; text-align:center; padding:20px; margin-to
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+
+
+
+

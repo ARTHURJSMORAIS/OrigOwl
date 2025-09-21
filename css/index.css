@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 /* ================= RESET & VARIÁVEIS ================= */
 /* Reset mínimo */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,7 +51,7 @@ header {
 }
 
 .logo img {
-  height: 70px;
+  height: 50px;
   display: block;
 }
 
@@ -75,7 +85,7 @@ nav a:hover {
   justify-content: center;
   background: #bb8d48;
   position: sticky;
-  top: 98px; /* altura do header */
+  top: 78px; /* altura do header */
   z-index: 999;
 }
 

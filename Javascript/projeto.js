@@ -44,3 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const player = new Plyr('.plyr', {
+    controls: [
+      'play-large', 'play', 'progress', 'current-time',
+      'mute', 'volume', 'captions', 'settings', 'fullscreen'
+    ]
+  });
+});
