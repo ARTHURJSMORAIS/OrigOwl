@@ -79,13 +79,13 @@ nav a:hover {
 /* Barra intermediária */
 .midbar {
   width: 100%;
-  border-bottom: 1px solid #eee;
-  padding: 15px;
+  border-bottom: 1px solid #d17b19;
+  padding: 12px;
   display: flex;
   justify-content: center;
   background: #bb8d48;
   position: sticky;
-  top: 84px; /* altura do header */
+  top: 90px; /* altura do header */
   z-index: 999;
 }
 
@@ -128,7 +128,7 @@ nav a:hover {
 
 /* Menu toggle mobile */
 .menu-toggle {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   background: none;
   border: none;
   color: rgb(255, 255, 255);
