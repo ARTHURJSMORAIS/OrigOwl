@@ -51,7 +51,7 @@ header {
 }
 
 .logo img {
-  height: 50px;
+  height: 60px;
   display: block;
 }
 
@@ -85,16 +85,17 @@ nav a:hover {
   justify-content: center;
   background: #bb8d48;
   position: sticky;
-  top: 78px; /* altura do header */
+  top: 84px; /* altura do header */
   z-index: 999;
 }
 
 .midbar nav a {
-  margin: 0 20px;
+  margin: 0 30px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
   transition: 0.3s;
+  text-align: center;
 }
 
 .midbar nav a:hover {
@@ -127,10 +128,10 @@ nav a:hover {
 
 /* Menu toggle mobile */
 .menu-toggle {
-  font-size: 2rem;
+  font-size: 1.9rem;
   background: none;
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
@@ -156,10 +157,10 @@ nav a:hover {
 }
 
 .close-btn {
-  font-size: 2rem;
+  font-size: 2.9rem;
   background: none;
   border: none;
-  color: yellow;
+  color: rgb(255, 255, 255);
   float: right;
   cursor: pointer;
 }
