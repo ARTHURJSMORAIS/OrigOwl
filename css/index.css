@@ -45,7 +45,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 9px 30px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 1000;
 }
@@ -85,7 +85,7 @@ nav a:hover {
   justify-content: center;
   background: #bb8d48;
   position: sticky;
-  top: 90px; /* altura do header */
+  top: 78px ; /* altura do header */
   z-index: 999;
 }
 
@@ -157,7 +157,7 @@ nav a:hover {
 }
 
 .close-btn {
-  font-size: 2.9rem;
+  font-size: 2.4rem;
   background: none;
   border: none;
   color: rgb(255, 255, 255);
