@@ -88,6 +88,14 @@ link: "projeto11.html" },
 
 
 
+{ titulo: "A FILM BY SAM MENDES", 
+  descricao: "1917 – Pôster conceitual (arte digital semi-realista)",
+imagem: "projeto12.img/1917 01.jpg", 
+link: "projeto12.html" },
+
+
+
+
   { titulo: "The Mandalorian — Fan Poster Art", 
   descricao: "Original fanart from the Star Wars universe", 
 imagem: "projeto02.img/The Mandalorian 01.jpg", 
@@ -144,6 +152,10 @@ link: "projeto09.html" },
   descricao: "Fan art inspired by the official Fantastic Four (2025) poster.Visual reinterpretation ",
 imagem: "img/Fantastic Four.jpg", 
 link: "projeto10.html" },
+
+
+
+
 
 
 
