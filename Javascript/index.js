@@ -114,9 +114,9 @@ link: "projeto01.html" },
     link: "projeto03.html" },
 
 
-  { titulo: "Path of Victory — Visual Artwork | William Lima", 
-  descricao: "This composition was designed to represent the symbolic journey of triumph, discipline, and national pride through the figure of William Lima.", 
-imagem: "img/william lima.jpg", 
+  { titulo: "Variações Visuais | William Lima", 
+  descricao: "Três variações de personagem desenvolvidas a partir de photobash, utilizando elementos de referência para compor diferentes versões visuais.", 
+imagem: "projeto04.img/01.jpg", 
 link: "projeto04.html" },
 
 
