@@ -7,6 +7,10 @@ html, body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+    box-sizing: border-box;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-user-select: none;
 }
 
 
