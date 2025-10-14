@@ -268,3 +268,19 @@ if (projetosContainer) {
 }
 
 
+(function() {
+  // Detecta se o site está sendo aberto dentro do Instagram
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  if (ua.indexOf('Instagram') > -1) {
+    // Corrige a escala
+    var viewport = document.querySelector('meta[name=viewport]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover');
+    } else {
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover';
+      document.head.appendChild(meta);
+    }
+  }
+})();
