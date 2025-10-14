@@ -2,17 +2,6 @@ body{
   background:#000 ;
 }
 
-/* Hero - imagem grande 
-.hero {
-  margin-top: 64px; /* espaço por causa do header fixo */
-}
-/*
-.hero img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-*/
 /* Seção Sobre */
 .sobre {
   background: ;
@@ -24,7 +13,7 @@ body{
   gap: 80px;
 }
 .bloco {
-  background: ;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;

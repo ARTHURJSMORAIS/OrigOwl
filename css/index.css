@@ -9,8 +9,12 @@ html, body {
   overflow-x: hidden;
     box-sizing: border-box;
   overflow-x: hidden;
-  -webkit-text-size-adjust: 77%;
-  -webkit-user-select: none;
+  -webkit-user-select: none; /* Chrome, Safari antigos */
+  -moz-user-select: none;    /* Firefox antigo */
+  -ms-user-select: none;     /* Edge antigo */
+  user-select: none;         /* Padrão moderno */
+  -webkit-text-size-adjust: 75%; /* suporte antigo (opcional) */
+  text-size-adjust: 75%;         /* versão moderna */
 }
 
 
