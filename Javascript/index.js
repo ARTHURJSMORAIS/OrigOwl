@@ -303,3 +303,27 @@ if (projetosContainer) {
     console.log('Viewport ajustado para webview de rede social.');
   }
 })();
+
+
+
+
+
+
+// Detecta a preferência do sistema (modo claro ou escuro)
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+function applyTheme() {
+  if (prefersDarkScheme.matches) {
+    document.body.classList.add("dark-theme");
+    document.body.classList.remove("light-theme");
+  } else {
+    document.body.classList.add("light-theme");
+    document.body.classList.remove("dark-theme");
+  }
+}
+
+// Aplica o tema ao carregar a página
+applyTheme();
+
+// Atualiza se o usuário mudar a preferência no sistema
+prefersDarkScheme.addEventListener("change", applyTheme);
