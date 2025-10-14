@@ -14,7 +14,7 @@ html, body {
   -ms-user-select: none;     /* Edge antigo */
   user-select: none;         /* Padrão moderno */
   -webkit-text-size-adjust: 75%; /* suporte antigo (opcional) */
-  text-size-adjust: 75%;         /* versão moderna */
+         /* versão moderna */
 }
 
 

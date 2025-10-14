@@ -306,24 +306,20 @@ if (projetosContainer) {
 
 
 
-
-
-
-// Detecta a preferência do sistema (modo claro ou escuro)
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-function applyTheme() {
-  if (prefersDarkScheme.matches) {
-    document.body.classList.add("dark-theme");
-    document.body.classList.remove("light-theme");
-  } else {
-    document.body.classList.add("light-theme");
-    document.body.classList.remove("dark-theme");
+(function() {
+  // Detecta se o site está sendo aberto dentro do Instagram
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  if (ua.indexOf('Instagram') > -1) {
+    // Corrige a escala
+    var viewport = document.querySelector('meta[name=viewport]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover');
+    } else {
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover';
+      document.head.appendChild(meta);
+    }
   }
-}
+})();
 
-// Aplica o tema ao carregar a página
-applyTheme();
-
-// Atualiza se o usuário mudar a preferência no sistema
-prefersDarkScheme.addEventListener("change", applyTheme);
