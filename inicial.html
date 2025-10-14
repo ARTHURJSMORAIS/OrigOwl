@@ -2,10 +2,14 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title>Página Inicial</title>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/SeçãodeDestaque.css">
+   <link rel="stylesheet" href="css/inicial.css">
+  
+ <script src="Javascript/inicial.js" defer></script>
    
   <script src="Javascript/index.js" defer></script>
 
@@ -51,17 +55,33 @@
     </nav>
   </div>
  
- 
-   <!-- Imagem grande em destaque -->
+   <!-- Imagem grande em destaque 
    <div class="destaque">
   <div class="hero">
     <img src="img/website.jpg" alt="Minha Imagem">
   </div>
+--->
+
+  <!-- ===== CARROSSEL ===== -->
+  <div class="carrossel">
+    <div class="carrossel-container">
+      <img src="https://picsum.photos/1920/1080?random=1" alt="Imagem 1" class="imagem-ativa" />
+      <img src="https://picsum.photos/1920/1080?random=2" alt="Imagem 2" />
+      <img src="https://picsum.photos/1920/1080?random=3" alt="Imagem 3" />
+    </div>
+
+    <!-- Miniaturas -->
+    <div class="miniaturas">
+      <img src="https://picsum.photos/300/300?random=1" alt="Thumb 1" class="ativa" data-index="0" />
+      <img src="https://picsum.photos/300/300?random=2" alt="Thumb 2" data-index="1" />
+      <img src="https://picsum.photos/300/300?random=3" alt="Thumb 3" data-index="2" />
+    </div>
+  </div>
+
+
 
   <!-- Blocos de apresentação -->
   <div class="sobre">
-
-
 <div class="bloco bloco-direita">
       <div class="texto">
         <h2>OrigOwl</h2>
@@ -94,9 +114,19 @@
   </div>
   
 
-  <!-- RODAPÉ -->
-  <footer>
-    &copy; 2025 OrigOwl. Todos os direitos reservados.
+    <!-- RODAPÉ -->
+  <footer class="footer">
+    <button class="back-to-top">↑ BACK TO TOP</button>
+    <div class="social">
+      <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+      <a href="https://www.instagram.com/js.moraes_/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"></a>
+      <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <p>&copy; 2025 OrigOwl. Todos os direitos reservados.</p>
   </footer>
 
 </body>
