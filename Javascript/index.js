@@ -268,19 +268,38 @@ if (projetosContainer) {
 }
 
 
+
+
+
+
 (function() {
-  // Detecta se o site está sendo aberto dentro do Instagram
-  var ua = navigator.userAgent || navigator.vendor || window.opera;
-  if (ua.indexOf('Instagram') > -1) {
-    // Corrige a escala
-    var viewport = document.querySelector('meta[name=viewport]');
+  // Detecta se está abrindo dentro de um app de rede social
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  const socialApps = [
+    'Instagram',
+    'FBAN', 'FBAV', 'Facebook',
+    'Line',
+    'LinkedIn',
+    'Twitter',
+    'Pinterest',
+    'TikTok'
+  ];
+
+  const isInAppBrowser = socialApps.some(app => ua.includes(app));
+
+  if (isInAppBrowser) {
+    const viewport = document.querySelector('meta[name=viewport]');
+    const contentValue = 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover';
+    
     if (viewport) {
-      viewport.setAttribute('content', 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover');
+      viewport.setAttribute('content', contentValue);
     } else {
-      var meta = document.createElement('meta');
+      const meta = document.createElement('meta');
       meta.name = 'viewport';
-      meta.content = 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover';
+      meta.content = contentValue;
       document.head.appendChild(meta);
     }
+
+    console.log('Viewport ajustado para webview de rede social.');
   }
 })();
