@@ -33,7 +33,7 @@ html, body {
 body {
   font-family: Gotham Office, arial, sans-serif;
   line-height: 1.6;
-
+background: #090909;
  
   min-height: 100vh;
   display: flex;
@@ -454,27 +454,6 @@ a, button { outline-color: rgba(0,0,0,0.12); }
 
 
 
-
-/* Tema claro (padrão) */
-body.light-theme {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-}
-
-/* Tema escuro (automático) */
-body.dark-theme {
-  --bg-color: #020202;
-  --text-color: #ffffff;
-}
-
-/* Estilos gerais */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: system-ui, sans-serif;
- 
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 
 
