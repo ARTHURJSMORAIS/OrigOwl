@@ -225,7 +225,7 @@ function atualizarVisibilidadeProjetos() {
     const conteudo = card.querySelector(".card-content");
     const titulo = card.querySelector("h3");
 
-    if (largura <= 282) {
+    if (largura <= 197) {
       // Some com imagem e descrição
       if (img) img.style.display = "none";
       if (descricao) descricao.style.display = "none";
