@@ -456,7 +456,7 @@ footer, .site-footer {
 }
 
 /* Mobile pequeno / WebView Instagram */
-@media (max-width: 180px) {
+@media (max-width: 580px) {
   :root { --header-h: 60px; --section-gap: 16px; --midbar-h: 36px; }
 
  
