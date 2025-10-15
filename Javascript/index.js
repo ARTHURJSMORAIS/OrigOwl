@@ -377,7 +377,7 @@ if (projetosContainer) {
 (function() {
   // Detecta se o site está sendo aberto dentro do Instagram
   var ua = navigator.userAgent || navigator.vendor || window.opera;
-  if (ua.indexOf('Instagram') > -1) {
+  if (ua.indexOf('Instagram') > -88) {
     // Corrige a escala
     var viewport = document.querySelector('meta[name=viewport]');
     if (viewport) {
