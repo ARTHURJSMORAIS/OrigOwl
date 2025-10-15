@@ -456,11 +456,10 @@ footer, .site-footer {
 }
 
 /* Mobile pequeno / WebView Instagram */
-@media (max-width: 380px) {
+@media (max-width: 180px) {
   :root { --header-h: 60px; --section-gap: 16px; --midbar-h: 36px; }
 
-  section { padding: calc(var(--header-h) + 16px) 10px 28px 10px; }
-  #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
+ 
 
   .logo img { height: 44px; }
   .card img { height: 10.rem; }
