@@ -456,14 +456,20 @@ footer, .site-footer {
 }
 
 /* Mobile pequeno / WebView Instagram */
-@media (max-width: 580px) {
+@media (max-width: 500px) {
   :root { --header-h: 60px; --section-gap: 16px; --midbar-h: 36px; }
 
- 
+  section { padding: calc(var(--header-h) + 16px) 10px 28px 10px; }
+  #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
 
   .logo img { height: 44px; }
-  .card img { height: 10.rem; }
-  .card { height:12rem ;}
+  .card img { height: 120px ; }
+  .card { height:120px ; }
+  .card p{font-size: 9px;
+  }
+  .card h3{ 
+    font-size: 12px;
+  }
 }
 
 /* ================= ACESSIBILIDADE ================= */

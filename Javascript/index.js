@@ -77,7 +77,7 @@ link: "projeto07.html" },
 
 
 { titulo: "Branding Retrô | Atomic Diner – Identidade Completa", 
-  descricao: "A identidade visual do Atomic Diner nasceu a partir da estética das clássicas hamburguerias americanas dos anos 50. ",
+  descricao: "A identidade visual do Atomic Diner  hamburguerias americanas dos anos 50. ",
 imagem: "img/01.jpg", 
 link: "projeto08.html" },
 
@@ -225,7 +225,7 @@ function atualizarVisibilidadeProjetos() {
     const conteudo = card.querySelector(".card-content");
     const titulo = card.querySelector("h3");
 
-    if (largura <= 388) {
+    if (largura <= 282) {
       // Some com imagem e descrição
       if (img) img.style.display = "none";
       if (descricao) descricao.style.display = "none";
@@ -374,20 +374,5 @@ if (projetosContainer) {
 
 
 
-(function() {
-  // Detecta se o site está sendo aberto dentro do Instagram
-  var ua = navigator.userAgent || navigator.vendor || window.opera;
-  if (ua.indexOf('Instagram') > -88) {
-    // Corrige a escala
-    var viewport = document.querySelector('meta[name=viewport]');
-    if (viewport) {
-      viewport.setAttribute('content', 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover');
-    } else {
-      var meta = document.createElement('meta');
-      meta.name = 'viewport';
-      meta.content = 'width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=no, viewport-fit=cover';
-      document.head.appendChild(meta);
-    }
-  }
-})();
+
 
