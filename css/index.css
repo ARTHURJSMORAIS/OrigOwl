@@ -95,7 +95,7 @@ nav a:hover {
   justify-content: center;
   background: #bb8d489c;
   position: sticky;
-  top: 78px ; /* altura do header */
+  top: 65px ; /* altura do header */
   z-index: 999;
 }
 
