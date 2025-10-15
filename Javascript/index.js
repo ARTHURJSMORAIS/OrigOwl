@@ -115,7 +115,7 @@ link: "projeto01.html" },
 
 
   { titulo: "Variações Visuais | William Lima", 
-  descricao: "Três variações de personagem desenvolvidas a partir de photobash, utilizando elementos de referência para compor diferentes versões visuais.", 
+  descricao: "Três variações de personagem desenvolvidas a partir de photobash.", 
 imagem: "projeto04.img/01.jpg", 
 link: "projeto04.html" },
 
@@ -161,6 +161,7 @@ link: "projeto10.html" },
 
 ];
 
+
 if (projetosContainer) {
   projetos.forEach((proj, index) => {
     const card = document.createElement("div");
@@ -193,13 +194,17 @@ if (projetosContainer) {
     if (proj.link) {
       card.style.cursor = "pointer";
       card.addEventListener("click", () => {
-        // Se for link externo, adicionar rel="noopener noreferrer"
         window.location.href = proj.link;
       });
     }
 
     projetosContainer.appendChild(card);
   });
+
+
+  window.addEventListener("resize", atualizarVisibilidadeProjetos);
+  window.addEventListener("DOMContentLoaded", atualizarVisibilidadeProjetos);
+  atualizarVisibilidadeProjetos();
 
   // Animação dos cards
   const allCards = document.querySelectorAll(".card");
@@ -210,6 +215,69 @@ if (projetosContainer) {
   });
 }
 
+function atualizarVisibilidadeProjetos() {
+  const largura = window.innerWidth;
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const img = card.querySelector("img");
+    const descricao = card.querySelector("p");
+    const conteudo = card.querySelector(".card-content");
+    const titulo = card.querySelector("h3");
+
+    if (largura <= 388) {
+      // Some com imagem e descrição
+      if (img) img.style.display = "none";
+      if (descricao) descricao.style.display = "none";
+
+      // Centraliza tudo no card
+      card.style.display = "flex";
+      card.style.flexDirection = "column";
+      card.style.justifyContent = "center";
+      card.style.alignItems = "center";
+      card.style.textAlign = "center";
+
+      conteudo.style.display = "flex";
+      conteudo.style.flexDirection = "column";
+      conteudo.style.justifyContent = "center";
+      conteudo.style.alignItems = "center";
+      conteudo.style.height = "100%";
+      conteudo.style.width = "100%";
+
+      // Ajuste visual do título
+      titulo.style.margin = "0";
+      titulo.style.fontSize = "1.6rem";
+      titulo.style.lineHeight = "1.3";
+      titulo.style.transition = "all 0.3s ease";
+    } else {
+      // Restaura o layout original
+      if (img) img.style.display = "";
+      if (descricao) descricao.style.display = "";
+
+      card.style.display = "";
+      card.style.flexDirection = "";
+      card.style.justifyContent = "";
+      card.style.alignItems = "";
+      card.style.textAlign = "";
+
+      conteudo.style.display = "";
+      conteudo.style.flexDirection = "";
+      conteudo.style.justifyContent = "";
+      conteudo.style.alignItems = "";
+      conteudo.style.height = "";
+      conteudo.style.width = "";
+
+      titulo.style.margin = "";
+      titulo.style.fontSize = "";
+      titulo.style.lineHeight = "";
+      titulo.style.transition = "";
+    }
+  });
+}
+
+window.addEventListener("resize", atualizarVisibilidadeProjetos);
+window.addEventListener("DOMContentLoaded", atualizarVisibilidadeProjetos);
+atualizarVisibilidadeProjetos();
 /* --------------------------- AJUSTE DE SIDEBAR --------------------------- */
 function ajustarSidebar() {
   const footer = document.querySelector("footer");

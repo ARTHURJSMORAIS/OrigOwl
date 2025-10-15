@@ -463,7 +463,8 @@ footer, .site-footer {
   #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
 
   .logo img { height: 44px; }
-  .card img { height: 80px; }
+  .card img { height: 10.rem; }
+  .card { height:12rem ;}
 }
 
 /* ================= ACESSIBILIDADE ================= */
