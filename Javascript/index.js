@@ -123,7 +123,7 @@ link: "projeto04.html" },
 
 
 { titulo: "Stage 4 – Glacial Sector", 
-  descricao: "é um projeto de manipulação digital com foco em narrativa visual e ambientação climática extrema.",
+  descricao: "é um projeto de manipulação digital com foco em narrativa visual.",
 imagem: "img/Stage 4 – Glacial Sector.jpg", 
 link: "projeto05.html" },
 
@@ -131,7 +131,7 @@ link: "projeto05.html" },
 
 
 { titulo: "Cairo GP — Visual Concept", 
-  descricao: "I created this artwork imagining what a Formula 1 race in Egypt would look like.",
+  descricao: " Formula 1 race in Egypt would look like.",
 imagem: "img/Hamilton 2.jpg", 
 link: "projeto06.html" },
 
@@ -141,7 +141,7 @@ link: "projeto06.html" },
 
 
 { titulo: "The New Son of Krypton", 
-  descricao: "Concept art inspired by James Gunn's Superman, in the new DC film. ",
+  descricao: "Concept art inspired by James Gunn's Superman. ",
 imagem: "img/Superman DESIGN.jpg", 
 link: "projeto09.html" },
 
@@ -149,7 +149,7 @@ link: "projeto09.html" },
 
 
 { titulo: "Fantastic Four Reimagined – Visual Concept Art (2025)", 
-  descricao: "Fan art inspired by the official Fantastic Four (2025) poster.Visual reinterpretation ",
+  descricao: " art s(2025) poster. Visual reinterpretation ",
 imagem: "img/Fantastic Four.jpg", 
 link: "projeto10.html" },
 
@@ -225,7 +225,7 @@ function atualizarVisibilidadeProjetos() {
     const conteudo = card.querySelector(".card-content");
     const titulo = card.querySelector("h3");
 
-    if (largura <= 197) {
+    if (largura <= 140) {
       // Some com imagem e descrição
       if (img) img.style.display = "none";
       if (descricao) descricao.style.display = "none";

@@ -51,7 +51,7 @@ header {
   top: 0;
   right: 0;
   width: 100%;
-  background: #15141470;
+  background: #07070770;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,7 +95,7 @@ nav a:hover {
   justify-content: center;
   background: #bb8d489c;
   position: sticky;
-  top: 65px ; /* altura do header */
+  top: 79px ; /* altura do header */
   z-index: 999;
 }
 
@@ -463,12 +463,12 @@ footer, .site-footer {
   #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
 
   .logo img { height: 44px; }
-  .card img { height: 120px ; }
-  .card { height:120px ; }
-  .card p{font-size: 9px;
+  .card img { height: 30px ; }
+  .card { height:30px ; }
+  .card p{font-size: 3px;
   }
   .card h3{ 
-    font-size: 12px;
+    font-size: 6px;
   }
 }
 
