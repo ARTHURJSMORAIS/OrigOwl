@@ -96,19 +96,19 @@ link: "projeto12.html" },
 
 
 
-  { titulo: "The Mandalorian — Fan Poster Art", 
+  { titulo: "The Mandalorian —  Poster Art", 
   descricao: "Original fanart from the Star Wars universe", 
 imagem: "projeto02.img/The Mandalorian 01.jpg", 
 link: "projeto02.html" },
 
 
-  { titulo: "Avatar: Fan Art— The Way of Water", 
+  { titulo: "Avatar: Art— The Way of Water", 
   descricao: "Art inspired by the universe of Avatar: The Way of Water.", 
 imagem: "img/avatar 01.jpg", 
 link: "projeto01.html" },
 
 
-  { titulo: "Formula 1 Visual Design — Personal Project", 
+  { titulo: "Formula 1 Visual Design", 
   descricao: "SPEED & PERFORMANCE Formula 1 Visual Identity",
    imagem:"img/Max Verstappen.jpg",
     link: "projeto03.html" },
@@ -131,7 +131,7 @@ link: "projeto05.html" },
 
 
 { titulo: "Cairo GP — Visual Concept", 
-  descricao: " Formula 1 race in Egypt would look like.",
+  descricao: " Como seria uma corrida de Fórmula 1 no Egito?",
 imagem: "img/Hamilton 2.jpg", 
 link: "projeto06.html" },
 
@@ -141,7 +141,7 @@ link: "projeto06.html" },
 
 
 { titulo: "The New Son of Krypton", 
-  descricao: "Concept art inspired by James Gunn's Superman. ",
+  descricao: "Concept art inspirada no Superman de James Gunn. ",
 imagem: "img/Superman DESIGN.jpg", 
 link: "projeto09.html" },
 
@@ -158,7 +158,7 @@ link: "projeto13.html" },
 
 
 { titulo: "Fantastic Four Reimagined – Visual Concept Art (2025)", 
-  descricao: " arte(2025) poster. Visual reinterpretation ",
+  descricao: " arte (2025) cartaz. Reinterpretação visual ",
 imagem: "img/Fantastic Four.jpg", 
 link: "projeto10.html" },
 
