@@ -148,6 +148,15 @@ link: "projeto09.html" },
 
 
 
+{ titulo: "Composição Visual de Glória e Unidade)", 
+  descricao: " A arte utiliza uma composição centrada na celebração coletiva, reforçando a narrativa de conquista. ",
+imagem: "projeto13.img/champions league.jpg", 
+link: "projeto13.html" },
+
+
+
+
+
 { titulo: "Fantastic Four Reimagined – Visual Concept Art (2025)", 
   descricao: " art s(2025) poster. Visual reinterpretation ",
 imagem: "img/Fantastic Four.jpg", 
