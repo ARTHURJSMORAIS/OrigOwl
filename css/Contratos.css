@@ -460,6 +460,10 @@ a, button { outline-color: rgba(0,0,0,0.12); }
   margin-bottom: 1rem;
 }
 
+
+.footer-links a{
+   font-size:22px ;
+}
 .social-icons {
   display: flex;
   justify-content: center;
