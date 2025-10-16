@@ -97,7 +97,7 @@ link: "projeto12.html" },
 
 
   { titulo: "The Mandalorian —  Poster Art", 
-  descricao: "Original fanart from the Star Wars universe", 
+  descricao: "Original do universo Star Wars", 
 imagem: "projeto02.img/The Mandalorian 01.jpg", 
 link: "projeto02.html" },
 
