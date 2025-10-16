@@ -88,6 +88,11 @@ link: "projeto11.html" },
 
 
 
+{ titulo: "Projeto pessoal — Sorriso & Saúde Odontologia", 
+  descricao: "dentidade visual desenvolvida para uma clínica fictícia de odontologia",
+imagem: "projeto14.img/10.jpg", 
+link: "projeto14.html" },
+
 { titulo: "A FILM BY SAM MENDES", 
   descricao: "1917 – Pôster conceitual (arte digital semi-realista)",
 imagem: "projeto12.img/1917 01.jpg", 
