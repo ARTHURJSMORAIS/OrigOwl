@@ -461,9 +461,7 @@ a, button { outline-color: rgba(0,0,0,0.12); }
 }
 
 
-.footer-links a{
-   font-size:22px ;
-}
+
 .social-icons {
   display: flex;
   justify-content: center;
