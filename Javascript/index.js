@@ -158,7 +158,7 @@ link: "projeto13.html" },
 
 
 { titulo: "Fantastic Four Reimagined – Visual Concept Art (2025)", 
-  descricao: " art s(2025) poster. Visual reinterpretation ",
+  descricao: " arte(2025) poster. Visual reinterpretation ",
 imagem: "img/Fantastic Four.jpg", 
 link: "projeto10.html" },
 
