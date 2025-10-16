@@ -413,26 +413,18 @@ footer, .site-footer {
   .desktop-nav { display: flex; }
   .menu-toggle, .menu, .nav-toggle { display: none; }
   .sidebar-right { display: block; }
-  .projetos { margin-right: 20px; }
+  .projetos { margin-right: 20px; } /* Ajuste opcional */
 }
 
-/* Laptop / Desktop médio */
-@media (max-width: 1049px) {
+/* Tablets e laptops médios */
+@media (max-width: 1050px) {
   .desktop-nav { display: none; }
-  .menu-toggle, .nav-toggle { display: inline-flex; }
   .sidebar-right { display: none; }
+  .nav-toggle { display: inline-flex; } /* garante que o botão apareça */
   .projetos { margin-right: 0; }
-  .menu { display: none; } /* Inicialmente escondido */
 }
 
-/* Mostrar menu quando toggle é ativo */
-.menu-toggle.active + .menu,
-.nav-toggle.active + .menu {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Tablets e mobiles */
+/* Tablets */
 @media (max-width: 800px) {
   :root { --header-h: 70px; --section-gap: 24px; --midbar-h: 44px; }
 
@@ -442,9 +434,13 @@ footer, .site-footer {
   .logo img { height: 52px; }
   .card img { height: 200px; }
 
-  .nav-wrap { display: flex; align-items: center; justify-content: space-between; }
+  .nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .logo { flex-shrink: 0; }
-  .nav-toggle { margin-left: auto; cursor: pointer; }
+  .nav-toggle { margin-left: auto; display: inline-flex; }
 }
 
 /* Mobile grande */
@@ -456,6 +452,8 @@ footer, .site-footer {
 
   .logo img { height: 48px; }
   .card img { height: 180px; }
+
+  .nav-toggle { display: inline-flex; } /* garante que continue aparecendo */
 }
 
 /* Mobile pequeno / WebView Instagram */
@@ -466,12 +464,17 @@ footer, .site-footer {
   #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
 
   .logo img { height: 44px; }
-  .card img { height: 30px; }
-  .card { height: 30px; }
+  .card img { height: 90px; }
+  .card { height: 90px; }
   .card p { font-size: 3px; }
   .card h3 { font-size: 6px; }
+
+  .nav-toggle { display: inline-flex; } /* também visível aqui */
 }
 
+/* ================= ACESSIBILIDADE ================= */
+a, button { outline-color: rgba(0,0,0,0.12); }
+:focus { outline: 3px solid rgba(0,0,0,0.06); outline-offset: 2px; }
 
 
 
