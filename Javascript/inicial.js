@@ -44,95 +44,67 @@ backToTopBtn.addEventListener('click', () => {
 
 /**
  * ============================================
- *  AR Frame | Otimizador de Mídia Inteligente
- *  (Imagens e Vídeos com Lazy Loading e Compressão)
+ *  AR Frame | Otimizador de Mídia Simples e Direto
+ *  (Compressão leve de imagens e vídeos, sem lazy loading)
  * ============================================
  *  Autor: Arthur Morais
  *  Data: 2025
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const imageQuality = 0.75; // Qualidade da compressão das imagens
-  const lazyThreshold = 0.2; // Quando carregar (0.2 = 20% visível)
-  const videos = document.querySelectorAll("video");
-  const images = document.querySelectorAll("img");
-
-  // ===== FUNÇÃO PARA OTIMIZAR IMAGENS =====
-  const compressImage = (img) => {
-    const originalSrc = img.getAttribute("data-src") || img.src;
-    const novaImg = new Image();
-    novaImg.crossOrigin = "anonymous";
-    novaImg.src = originalSrc;
-
-    novaImg.onload = () => {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-
-      // Reduz a dimensão se a imagem for muito grande
-      const maxWidth = 1920;
-      const scale = Math.min(1, maxWidth / novaImg.width);
-      canvas.width = novaImg.width * scale;
-      canvas.height = novaImg.height * scale;
-
-      ctx.drawImage(novaImg, 0, 0, canvas.width, canvas.height);
-
-      // Converte para formato WebP mais leve
-      const webpImage = canvas.toDataURL("image/webp", imageQuality);
-      img.src = webpImage;
-      img.removeAttribute("data-src");
-    };
-  };
-
-  // ===== LAZY LOADING DE IMAGENS =====
-  const imgObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        compressImage(entry.target);
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: lazyThreshold });
-
-  images.forEach(img => {
-    img.loading = "lazy";
-    imgObserver.observe(img);
-  });
-
-  // ===== OTIMIZAÇÃO DE VÍDEOS =====
-  const videoObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const video = entry.target;
-
-        // Carrega vídeo apenas quando visível
-        if (video.dataset.src) {
-          video.src = video.dataset.src;
-        }
-
-        // Define poster (thumbnail) leve, se existir
-        if (video.dataset.poster) {
-          video.poster = video.dataset.poster;
-        }
-
-        // Ajusta opções para performance
-        video.preload = "metadata";
-        video.autoplay = false;
-        video.muted = true;
-        video.playsInline = true;
-
-        // Carrega o vídeo e começa só quando visível
-        video.load();
-        obs.unobserve(video);
-      }
-    });
-  }, { threshold: lazyThreshold });
-
-  videos.forEach(video => {
-    // Adiciona pre-carregamento leve
-    video.preload = "none";
-    videoObserver.observe(video);
-  });
-
-  // ===== MONITORAMENTO OPCIONAL =====
   console.log("🚀 Otimizador de mídia iniciado — AR Frame");
+
+  const imageQuality = 0.75; // 0.1 = mais leve / 1.0 = qualidade máxima
+  const maxWidth = 1920; // largura máxima para redimensionamento
+
+  // ========== OTIMIZAR IMAGENS ==========
+  const imagens = document.querySelectorAll("img");
+
+  imagens.forEach((img) => {
+    try {
+      const originalSrc = img.src;
+      const novaImg = new Image();
+      novaImg.crossOrigin = "anonymous";
+      novaImg.src = originalSrc;
+
+      novaImg.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const scale = Math.min(1, maxWidth / novaImg.width);
+        canvas.width = novaImg.width * scale;
+        canvas.height = novaImg.height * scale;
+
+        ctx.drawImage(novaImg, 0, 0, canvas.width, canvas.height);
+
+        // Converte para WebP (muito mais leve)
+        const webpImage = canvas.toDataURL("image/webp", imageQuality);
+        img.src = webpImage;
+      };
+    } catch (err) {
+      console.warn("⚠️ Erro ao otimizar imagem:", err);
+    }
+  });
+
+  // ========== OTIMIZAR VÍDEOS ==========
+  const videos = document.querySelectorAll("video");
+
+  videos.forEach((video) => {
+    try {
+      // Configurações leves de carregamento
+      video.preload = "metadata";
+      video.autoplay = false;
+      video.muted = true;
+      video.playsInline = true;
+
+      // Tenta reduzir a taxa de bits, se possível
+      const src = video.getAttribute("src");
+      if (src && !src.endsWith(".webm")) {
+        // Recomendação: usar formato .webm (muito mais leve)
+        console.log(`🎥 Sugestão: converter ${src} para .webm para melhor desempenho`);
+      }
+    } catch (err) {
+      console.warn("⚠️ Erro ao otimizar vídeo:", err);
+    }
+  });
 });
