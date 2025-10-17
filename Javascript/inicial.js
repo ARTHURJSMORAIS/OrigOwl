@@ -86,25 +86,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ========== OTIMIZAR VÍDEOS ==========
-  const videos = document.querySelectorAll("video");
-
-  videos.forEach((video) => {
-    try {
-      // Configurações leves de carregamento
-      video.preload = "metadata";
-      video.autoplay = false;
-      video.muted = true;
-      video.playsInline = true;
-
-      // Tenta reduzir a taxa de bits, se possível
-      const src = video.getAttribute("src");
-      if (src && !src.endsWith(".webm")) {
-        // Recomendação: usar formato .webm (muito mais leve)
-        console.log(`🎥 Sugestão: converter ${src} para .webm para melhor desempenho`);
-      }
-    } catch (err) {
-      console.warn("⚠️ Erro ao otimizar vídeo:", err);
-    }
-  });
-});
+  
