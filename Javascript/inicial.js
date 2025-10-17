@@ -51,27 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   imagens.forEach(img => {
     const originalSrc = img.src;
 
-    // Lazy loading automático
-    img.loading = "lazy";
-
-    const novaImg = new Image();
-    novaImg.crossOrigin = "anonymous";
-    novaImg.src = originalSrc;
-
-    novaImg.onload = () => {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = novaImg.width;
-      canvas.height = novaImg.height;
-      ctx.drawImage(novaImg, 0, 0);
-      const imagemComprimida = canvas.toDataURL("image/webp", quality);
-      img.src = imagemComprimida;
-    };
-
-    novaImg.onerror = () => {
-      console.warn("Não foi possível comprimir a imagem:", originalSrc);
-    };
-  });
+    
 
   // ======= OTIMIZAÇÃO DE VÍDEOS =======
   videos.forEach(video => {
