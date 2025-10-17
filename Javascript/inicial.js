@@ -42,48 +42,97 @@ backToTopBtn.addEventListener('click', () => {
 
 
 
+/**
+ * ============================================
+ *  AR Frame | Otimizador de Mídia Inteligente
+ *  (Imagens e Vídeos com Lazy Loading e Compressão)
+ * ============================================
+ *  Autor: Arthur Morais
+ *  Data: 2025
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
-  const quality = 0.4; // qualidade da compressão das imagens
-  const imagens = document.querySelectorAll("img");
+  const imageQuality = 0.75; // Qualidade da compressão das imagens
+  const lazyThreshold = 0.2; // Quando carregar (0.2 = 20% visível)
   const videos = document.querySelectorAll("video");
+  const images = document.querySelectorAll("img");
 
-  // ======= OTIMIZAÇÃO DE IMAGENS =======
-  imagens.forEach(img => {
-    const originalSrc = img.src;
+  // ===== FUNÇÃO PARA OTIMIZAR IMAGENS =====
+  const compressImage = (img) => {
+    const originalSrc = img.getAttribute("data-src") || img.src;
+    const novaImg = new Image();
+    novaImg.crossOrigin = "anonymous";
+    novaImg.src = originalSrc;
 
-    
+    novaImg.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
 
-  // ======= OTIMIZAÇÃO DE VÍDEOS =======
-  videos.forEach(video => {
-    // Impede o carregamento imediato
-    video.preload = "none";
+      // Reduz a dimensão se a imagem for muito grande
+      const maxWidth = 1920;
+      const scale = Math.min(1, maxWidth / novaImg.width);
+      canvas.width = novaImg.width * scale;
+      canvas.height = novaImg.height * scale;
 
-    // Desativa autoplay e mute se não for essencial
-    video.autoplay = false;
-    video.muted = true;
+      ctx.drawImage(novaImg, 0, 0, canvas.width, canvas.height);
 
-    // Lazy loading manual com IntersectionObserver
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Carrega o vídeo quando entra na tela
-          if (video.dataset.src) {
-            video.src = video.dataset.src;
-          }
-          video.load();
-          obs.unobserve(video);
-        }
-      });
-    }, { threshold: 0.2 });
+      // Converte para formato WebP mais leve
+      const webpImage = canvas.toDataURL("image/webp", imageQuality);
+      img.src = webpImage;
+      img.removeAttribute("data-src");
+    };
+  };
 
-    observer.observe(video);
-
-    // Ajusta qualidade do vídeo (para vídeos MP4 ou semelhantes)
-    video.addEventListener("loadedmetadata", () => {
-      if (video.videoWidth > 1280) {
-        // Se o vídeo for 1080p ou 4K, reduz a resolução de reprodução
-        video.playbackQuality = "hd720";
+  // ===== LAZY LOADING DE IMAGENS =====
+  const imgObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        compressImage(entry.target);
+        obs.unobserve(entry.target);
       }
     });
+  }, { threshold: lazyThreshold });
+
+  images.forEach(img => {
+    img.loading = "lazy";
+    imgObserver.observe(img);
   });
+
+  // ===== OTIMIZAÇÃO DE VÍDEOS =====
+  const videoObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+
+        // Carrega vídeo apenas quando visível
+        if (video.dataset.src) {
+          video.src = video.dataset.src;
+        }
+
+        // Define poster (thumbnail) leve, se existir
+        if (video.dataset.poster) {
+          video.poster = video.dataset.poster;
+        }
+
+        // Ajusta opções para performance
+        video.preload = "metadata";
+        video.autoplay = false;
+        video.muted = true;
+        video.playsInline = true;
+
+        // Carrega o vídeo e começa só quando visível
+        video.load();
+        obs.unobserve(video);
+      }
+    });
+  }, { threshold: lazyThreshold });
+
+  videos.forEach(video => {
+    // Adiciona pre-carregamento leve
+    video.preload = "none";
+    videoObserver.observe(video);
+  });
+
+  // ===== MONITORAMENTO OPCIONAL =====
+  console.log("🚀 Otimizador de mídia iniciado — AR Frame");
 });
