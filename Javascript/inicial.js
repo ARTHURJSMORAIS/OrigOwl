@@ -43,7 +43,7 @@ backToTopBtn.addEventListener('click', () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const quality = 0.7; // qualidade da compressão das imagens
+  const quality = 0.4; // qualidade da compressão das imagens
   const imagens = document.querySelectorAll("img");
   const videos = document.querySelectorAll("video");
 
