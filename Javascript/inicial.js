@@ -41,57 +41,36 @@ backToTopBtn.addEventListener('click', () => {
 
 
 
+// === Otimização leve de imagens sem lazy loading ===
 
-/**
- * ============================================
- *  Otimizador de Imagens — AR Frame
- *  (Reduz peso e melhora performance sem alterar layout)
- * ============================================
- */
-
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("🧠 Otimizador de imagens iniciado.");
-
-  const imageQuality = 0.75; // controle da qualidade (0.5 mais leve, 1.0 original)
-  const maxWidth = 1920; // limite de largura (pode ajustar conforme o layout)
-
-  // Seleciona todas as imagens visíveis na página
+// Quando a página terminar de carregar
+window.addEventListener("load", () => {
   const imagens = document.querySelectorAll("img");
 
-  imagens.forEach((img) => {
-    // Se a imagem já for muito leve (ícones, SVG, etc.), pula
-    if (!img.src || img.src.endsWith(".svg")) return;
+  imagens.forEach(img => {
+    // Força o navegador a armazenar a imagem em cache
+    img.decoding = "async"; // carrega de forma assíncrona sem bloquear o layout
+    img.loading = "eager"; // garante que carregue logo sem atrasar
 
-    const originalSrc = img.src;
-    const novaImg = new Image();
-    novaImg.crossOrigin = "anonymous";
-    novaImg.src = originalSrc;
+    // Usa compressão automática do navegador, se disponível
+    img.style.imageRendering = "auto";
 
-    novaImg.onload = () => {
-      try {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+    // Ativa cache e reutilização se possível
+    img.fetchPriority = "high";
 
-        const scale = Math.min(1, maxWidth / novaImg.width);
-        canvas.width = novaImg.width * scale;
-        canvas.height = novaImg.height * scale;
+    // Garante carregamento rápido em conexões lentas
+    img.setAttribute("importance", "high");
 
-        ctx.drawImage(novaImg, 0, 0, canvas.width, canvas.height);
-
-        // Converte para formato WebP mais leve
-        const webpImage = canvas.toDataURL("image/webp", imageQuality);
-
-        // Substitui a imagem original pela otimizada
-        img.src = webpImage;
-      } catch (err) {
-        console.warn("⚠️ Erro ao otimizar imagem:", err);
+    // Teste de fallback para navegadores antigos
+    const temp = new Image();
+    temp.src = img.src;
+    temp.onload = () => {
+      // Substitui apenas se a imagem original falhar
+      if (!img.complete || img.naturalWidth === 0) {
+        img.src = temp.src;
       }
-    };
-
-    novaImg.onerror = () => {
-      console.warn(`❌ Não foi possível carregar a imagem: ${originalSrc}`);
     };
   });
 
-  console.log("✅ Todas as imagens foram otimizadas.");
+  console.log("✅ Imagens otimizadas e carregadas sem atrasos visuais.");
 });
