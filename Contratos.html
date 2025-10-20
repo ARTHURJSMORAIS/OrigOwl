@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/inicial.css" />
   <script src="Javascript/inicial.js" defer></script>
    <script src="Javascript/index.js" defer></script>
-     <script src="Javascript/contato.js"></script>
+     <script src="contato.js"></script>
 </head>
 
 <body>
@@ -126,22 +126,23 @@
 </section>
 --->
 <div class="background">
+  <form id="form-contato">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" title="Seu nome completo" required>
 
-<form id="form-contato">
-  <label for="nome">Nome</label>
-  <input type="text" id="nome" name="nome" placeholder="Digite seu nome" title="Seu nome completo" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Digite seu email" title="Seu endereço de email" required>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" placeholder="Digite seu email" title="Seu endereço de email" required>
+    <label for="mensagem">Mensagem</label>
+    <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" title="Sua mensagem" required></textarea>
 
-  <label for="mensagem">Mensagem</label>
-  <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" title="Sua mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
 
-  <button type="submit">Enviar</button>
-</form>
-
-
+  <!-- Aqui aparece a mensagem de sucesso ou erro -->
+  <div id="resposta" style="margin-top: 10px; font-weight: bold;"></div>
 </div>
+
 
 
 
