@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/inicial.css" />
   <script src="Javascript/inicial.js" defer></script>
    <script src="Javascript/index.js" defer></script>
+     <script src="Javascript/contato.js"></script>
 </head>
 
 <body>
@@ -111,7 +112,7 @@
     </section>
   </main>
 
-
+ <!-- =================  
 <section class="contact-section">
      <div class="contact-content">
     <h2>CONTATE-NOS</h2>
@@ -123,6 +124,25 @@
     <a href="mailto:origowlcontratos@gmail.com" class="contact-btn">ENVIE-NOS UM E-MAIL</a>
   </div>
 </section>
+--->
+<div class="background">
+
+<form id="form-contato">
+  <label for="nome">Nome</label>
+  <input type="text" id="nome" name="nome" placeholder="Digite seu nome" title="Seu nome completo" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" placeholder="Digite seu email" title="Seu endereço de email" required>
+
+  <label for="mensagem">Mensagem</label>
+  <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" title="Sua mensagem" required></textarea>
+
+  <button type="submit">Enviar</button>
+</form>
+
+
+</div>
+
 
 
     <!-- RODAPÉ -->

@@ -213,7 +213,9 @@ nav a:hover {
 
  /* Menu  */
 
-/* ================= FORMULÁRIO ================= */
+/* ================= FORMULÁRIO 
+
+
 form {
   margin-top: 60px;
   display: grid;
@@ -222,7 +224,7 @@ form {
   margin: 10px auto;
 }
 form input, form textarea {
-  padding: 12px;
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -239,6 +241,83 @@ form button {
 }
 form button:hover { background: #005bb5; }
 h2 { font-size: 1.5rem; margin-top: 60px; }
+
+
+================= */
+
+/* ================= FORMULÁRIO ================= */
+.background{
+
+background-color: #000;
+
+}
+/* Formulário estilo Kojima, agora mais largo */
+#form-contato {
+  background-color: #fcfcfc; /* fundo escuro */
+  padding: 2rem;
+  border-radius: 1px;
+  max-width: 90%; /* aumenta a largura do formulário */
+  width: 90%; /* ocupa 90% da tela */
+  margin: 2rem auto;
+ 
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Labels */
+#form-contato label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+/* Campos de entrada */
+#form-contato input,
+#form-contato textarea {
+  width: 100%; /* ocupa toda a largura do formulário */
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #444;
+  border-radius: 1px;
+  background-color: #222;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  resize: none; /* remove o botão de redimensionar do textarea */
+}
+
+/* Altura fixa para o textarea da mensagem */
+#form-contato textarea {
+  height: 150px; /* você pode ajustar para o tamanho que quiser */
+}
+
+/* Foco nos campos */
+#form-contato input:focus,
+#form-contato textarea:focus {
+  border-color: #f0a500;
+}
+
+/* Botão */
+#form-contato button {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #eb9515;
+  color: #101010;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#form-contato button:hover {
+  background-color: #d7d7d7;
+}
+
 
 
 
