@@ -3,6 +3,7 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import { google } from "googleapis";
+import path from "path";
 
 dotenv.config();
 
@@ -11,8 +12,9 @@ const port = process.env.PORT || 2600;
 
 // Middleware
 app.use(express.json());
-app.use(cors()); // permite requisições de qualquer origem (ajuste se quiser limitar)
-app.use(express.static("D:/OrigOwl")); // seus arquivos estáticos
+app.use(cors()); // permite requisições de qualquer origem
+// Serve os arquivos HTML, CSS, JS que estão na pasta acima do servidor/
+app.use(express.static(path.join(process.cwd(), "../")));
 
 // Configuração OAuth2 do Google
 const oAuth2Client = new google.auth.OAuth2(
@@ -58,7 +60,7 @@ app.post("/enviar", async (req, res) => {
   }
 });
 
-// Rota principal
+// Rota principal para teste
 app.get("/", (req, res) => {
   res.send("🚀 Servidor OrigOwl está funcionando corretamente!");
 });
