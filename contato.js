@@ -5,13 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    // Pega os valores do formulário
     const dados = {
       nome: document.getElementById("nome").value.trim(),
       email: document.getElementById("email").value.trim(),
       mensagem: document.getElementById("mensagem").value.trim()
     };
 
-    // Validação simples
+    // Validação básica
     if (!dados.nome || !dados.email || !dados.mensagem) {
       respostaDiv.textContent = "❌ Por favor, preencha todos os campos.";
       respostaDiv.style.color = "red";
@@ -19,18 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
+      // URL do seu backend no Render, endpoint correto
       const resposta = await fetch("https://origowl.onrender.com/enviar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dados)
       });
 
-      if (!resposta.ok) throw new Error("Falha ao enviar");
-
       const resultado = await resposta.json();
+
+      // Mostra mensagem de sucesso ou erro
       respostaDiv.textContent = resultado.mensagem;
-      respostaDiv.style.color = "green";
-      form.reset();
+      respostaDiv.style.color = resposta.ok ? "green" : "red";
+
+      // Limpa o formulário se envio bem-sucedido
+      if (resposta.ok) form.reset();
 
     } catch (erro) {
       respostaDiv.textContent = "❌ Erro ao enviar a mensagem.";
