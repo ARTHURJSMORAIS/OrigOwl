@@ -5,15 +5,23 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    // Pega os valores do formulário
     const dados = {
-      nome: document.getElementById("nome").value,
-      email: document.getElementById("email").value,
-      mensagem: document.getElementById("mensagem").value
+      nome: document.getElementById("nome").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      mensagem: document.getElementById("mensagem").value.trim()
     };
 
+    // Validação básica
+    if (!dados.nome || !dados.email || !dados.mensagem) {
+      respostaDiv.textContent = "❌ Por favor, preencha todos os campos.";
+      respostaDiv.style.color = "red";
+      return;
+    }
+
     try {
-      // Substitua pela URL real do seu backend no Render
-      const resposta = await fetch("https://origowl.onrender.com", {
+      // URL do seu backend no Render, endpoint correto
+      const resposta = await fetch("https://origowl.onrender.com/enviar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dados)
@@ -21,16 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const resultado = await resposta.json();
 
-      // Mostra a mensagem de sucesso ou erro
+      // Mostra mensagem de sucesso ou erro
       respostaDiv.textContent = resultado.mensagem;
       respostaDiv.style.color = resposta.ok ? "green" : "red";
 
-      // Limpa o formulário
-      form.reset();
+      // Limpa o formulário se envio bem-sucedido
+      if (resposta.ok) form.reset();
+
     } catch (erro) {
       respostaDiv.textContent = "❌ Erro ao enviar a mensagem.";
       respostaDiv.style.color = "red";
-      console.error(erro);
+      console.error("Erro no fetch:", erro);
     }
   });
 });
