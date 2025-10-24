@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import { google } from "googleapis";
@@ -6,11 +7,12 @@ import { google } from "googleapis";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT ||2600;
+const port = process.env.PORT || 2600;
 
+// Middleware
 app.use(express.json());
-
-app.use(express.static("D:/OrigOwl"));
+app.use(cors()); // permite requisições de qualquer origem (ajuste se quiser limitar)
+app.use(express.static("D:/OrigOwl")); // seus arquivos estáticos
 
 // Configuração OAuth2 do Google
 const oAuth2Client = new google.auth.OAuth2(
@@ -25,11 +27,8 @@ oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 app.post("/enviar", async (req, res) => {
   try {
     const { nome, email, mensagem } = req.body;
-console.log("REFRESH_TOKEN:", process.env.REFRESH_TOKEN);
-console.log("EMAIL_USER:", process.env.EMAIL_USER);
 
     const { token } = await oAuth2Client.getAccessToken();
-    console.log("Access Token:", token);
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
