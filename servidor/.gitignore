@@ -1,2 +1,13 @@
-# Ignorar arquivos de configuração e senha
-.servidor/.env
+# Arquivos de configuração sensíveis
+servidor/.env
+.env
+
+
+# Node modules
+servidor/node_modules
+  
+
+
+# Build/Dist
+dist/
+build/
