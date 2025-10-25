@@ -408,6 +408,66 @@ a, button { outline-color: rgba(0,0,0,0.12); }
 
 
 
+.contact{
+  background-image: url('fundo.jpg'); /* coloque aqui sua imagem de fundo */
+ 
+  color: #000000;
+  padding: 100px 40px;
+  text-align: center;
+ 
+
+}
+
+.contact-content {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.contact-content h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.contact-content p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #dcdcdc;
+}
+
+.contact-content a {
+  color: #4e4e4e;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(to right, #e1e1e1, #c9c9c9);
+  color: #000;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 1px;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #b05717;
+}
+
 
 
 
