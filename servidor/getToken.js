@@ -1,26 +1,68 @@
-import { google } from "googleapis";
+import express from "express";
+import cors from "cors";
+import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import { google } from "googleapis";
+import path from "path";
 
 dotenv.config();
 
-// Substitua aqui pelos valores do seu JSON
-const CLIENT_ID = "160578311843-f1guv8rm4umld6cc9ttht5c9gdhh57kk.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URI = "https://developers.google.com/oauthplayground/";
+const app = express();
+const port = process.env.PORT || 2600;
 
+// Middleware
+app.use(express.json());
+app.use(cors()); // permite requisições de qualquer origem
+// Serve os arquivos HTML, CSS, JS que estão na pasta acima do servidor/
+app.use(express.static(path.join(process.cwd(), "../")));
+
+// Configuração OAuth2 do Google
 const oAuth2Client = new google.auth.OAuth2(
-  CLIENT_ID,
-  CLIENT_SECRET,
-  REDIRECT_URI
+  process.env.CLIENT_ID,
+  process.env.CLIENT_SECRET,
+  "https://developers.google.com/oauthplayground"
 );
 
-const SCOPES = ["https://mail.google.com/"];
+oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
-const url = oAuth2Client.generateAuthUrl({
-  access_type: "offline",
-  scope: SCOPES,
-  response_type: "code",
+// Rota de envio de e-mail
+app.post("/enviar", async (req, res) => {
+  try {
+    const { nome, email, mensagem } = req.body;
+
+    const { token } = await oAuth2Client.getAccessToken();
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        type: "OAuth2",
+        user: process.env.EMAIL_USER,
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN,
+        accessToken: token,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      replyTo: email,
+      to: process.env.EMAIL_USER,
+      subject: `Mensagem de ${nome}`,
+      text: mensagem,
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.json({ mensagem: "✅ E-mail enviado com sucesso!" });
+  } catch (error) {
+    console.error("Erro ao enviar e-mail:", error);
+    res.status(500).json({ mensagem: "❌ Erro ao enviar e-mail." });
+  }
 });
 
-console.log("👉 Acesse este link no navegador para gerar o token:");
-console.log(url);
+// Rota principal para teste
+app.get("/", (req, res) => {
+  res.send("🚀 Servidor OrigOwl está funcionando corretamente!");
+});
+
+app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
