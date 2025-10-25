@@ -8,7 +8,7 @@ import path from "path";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 2900;
+const port = process.env.PORT ||  3000;
 
 // Middleware
 app.use(express.json());
@@ -27,10 +27,18 @@ oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
 // Rota de envio de e-mail
 app.post("/enviar", async (req, res) => {
-  try {
-    const { nome, email, mensagem } = req.body;
+  console.log("📩 Dados recebidos do formulário:", req.body);
 
+  const { nome, email, mensagem } = req.body;
+
+  if (!nome || !email || !mensagem) {
+    console.log("❌ Formulário incompleto!");
+    return res.status(400).json({ mensagem: "Preencha todos os campos." });
+  }
+
+  try {
     const { token } = await oAuth2Client.getAccessToken();
+    console.log("🔑 Token OAuth2 obtido:", token ? "OK" : "NULO");
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -52,13 +60,19 @@ app.post("/enviar", async (req, res) => {
       text: mensagem,
     };
 
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ E-mail enviado! ID:", info.messageId);
+
     res.json({ mensagem: "✅ E-mail enviado com sucesso!" });
   } catch (error) {
-    console.error("Erro ao enviar e-mail:", error);
-    res.status(500).json({ mensagem: "❌ Erro ao enviar e-mail." });
+    console.error("❌ Erro ao enviar e-mail:", error);
+    res.status(500).json({
+      mensagem: "❌ Erro ao enviar e-mail.",
+      detalhe: error.message // envia a mensagem de erro no JSON
+    });
   }
 });
+
 
 // Rota principal para teste
 app.get("/", (req, res) => {
