@@ -377,25 +377,70 @@ main {
 /* ===========================
    RESPONSIVIDADE
 =========================== */
-@media (min-width: 1068px) {
+
+
+/* Desktop grande */
+@media (min-width: 1050px) {
   .desktop-nav { display: flex; }
-  .menu-toggle, .menu { display: none; }
+  .menu-toggle, .menu, .nav-toggle { display: none; }
+  .sidebar-right { display: block; }
+  .projetos { margin-right: 20px; } /* Ajuste opcional */
 }
 
-@media (max-width: 1024px) {
+/* Tablets e laptops médios */
+@media (max-width: 1050px) {
   .desktop-nav { display: none; }
-  .menu-toggle { display: inline-flex; }
+  .sidebar-right { display: none; }
+  .nav-toggle { display: inline-flex; } /* garante que o botão apareça */
+  .projetos { margin-right: 0; }
+}
+
+/* Tablets */
+@media (max-width: 800px) {
+  :root { --header-h: 70px; --section-gap: 24px; --midbar-h: 44px; }
+
+  section { padding: calc(var(--header-h) + 24px) 16px 36px 16px; }
+  #apresentacao { padding: calc(var(--header-h) + 60px) 16px 50px 16px; }
+
   .logo img { height: 52px; }
+  .card img { height: 200px; }
+
+  .nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { flex-shrink: 0; }
+  .nav-toggle { margin-left: auto; display: inline-flex; }
 }
 
-@media (max-width: 768px) {
+/* Mobile grande */
+@media (max-width: 600px) {
+  :root { --header-h: 66px; --section-gap: 20px; --midbar-h: 40px; }
+
+  section { padding: calc(var(--header-h) + 18px) 12px 32px 12px; }
+  #apresentacao { padding: calc(var(--header-h) + 50px) 12px 40px 12px; }
+
   .logo img { height: 58px; }
-  .content { padding: 0 1rem; }
+  .card img { height: 180px; }
+
+  .nav-toggle { display: inline-flex; } /* garante que continue aparecendo */
 }
 
-@media (max-width: 480px) {
-  .policy-text h1 { font-size: 1.4rem; }
-  .contact-content h2 { font-size: 32px; }
+/* Mobile pequeno / WebView Instagram */
+@media (max-width: 400px) {
+  :root { --header-h: 60px; --section-gap: 16px; --midbar-h: 36px; }
+
+  section { padding: calc(var(--header-h) + 16px) 10px 28px 10px; }
+  #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
+
+  .logo img { height: 54px; }
+  .card img { height: 90px; }
+  .card { height: 90px; }
+  .card p { font-size: 3px; }
+  .card h3 { font-size: 6px; }
+
+  .nav-toggle { display: inline-flex; } /* também visível aqui */
 }
 
 /* ===========================
