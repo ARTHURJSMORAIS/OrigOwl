@@ -45,7 +45,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 30px;
+  padding: 3px 30px;
   box-shadow: 0 0px 1px rgba(255, 255, 255, 0.9);
   z-index: 1000;
 }
@@ -74,7 +74,7 @@ nav a:hover {
 }
 
 .menu-toggle {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   background: none;
   border: none;
   color: #fff;
@@ -385,7 +385,7 @@ main {
 @media (max-width: 1024px) {
   .desktop-nav { display: none; }
   .menu-toggle { display: inline-flex; }
-  .logo img { height: 58px; }
+  .logo img { height: 52px; }
 }
 
 @media (max-width: 768px) {

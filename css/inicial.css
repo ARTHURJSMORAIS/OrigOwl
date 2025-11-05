@@ -90,7 +90,7 @@
 
 /* ===== CARROSSEL ===== */
 .carrossel {
-  margin-top: 80px; /* espaço pro menu fixo */
+  margin-top: 90px; /* espaço pro menu fixo */
   position: relative;
   width: 100%;
   overflow: hidden;
