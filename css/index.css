@@ -450,7 +450,7 @@ footer, .site-footer {
   section { padding: calc(var(--header-h) + 18px) 12px 32px 12px; }
   #apresentacao { padding: calc(var(--header-h) + 50px) 12px 40px 12px; }
 
-  .logo img { height: 48px; }
+  .logo img { height: 58px; }
   .card img { height: 180px; }
 
   .nav-toggle { display: inline-flex; } /* garante que continue aparecendo */
@@ -463,7 +463,7 @@ footer, .site-footer {
   section { padding: calc(var(--header-h) + 16px) 10px 28px 10px; }
   #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
 
-  .logo img { height: 44px; }
+  .logo img { height: 54px; }
   .card img { height: 90px; }
   .card { height: 90px; }
   .card p { font-size: 3px; }
