@@ -385,7 +385,7 @@ main {
 @media (max-width: 1024px) {
   .desktop-nav { display: none; }
   .menu-toggle { display: inline-flex; }
-  .logo img { height: 52px; }
+  .logo img { height: 58px; }
 }
 
 @media (max-width: 768px) {
