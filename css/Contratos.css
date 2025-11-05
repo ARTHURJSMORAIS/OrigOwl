@@ -1,157 +1,86 @@
+/* ===========================
+   RESET & CONFIGURAÇÕES GERAIS
+=========================== */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-
 
 html, body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-    box-sizing: border-box;
-  overflow-x: hidden;
-  -webkit-user-select: none; /* Chrome, Safari antigos */
-  -moz-user-select: none;    /* Firefox antigo */
-  -ms-user-select: none;     /* Edge antigo */
-  user-select: none;         /* Padrão moderno */
-  -webkit-text-size-adjust: 77%; /* suporte antigo (opcional) */
-         /* versão moderna */
-}
-
-
-/* ================= RESET & VARIÁVEIS ================= */
-/* Reset mínimo */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root{
-  --bg: #fdfdfd;
-  --text: #222;
-  --accent: #0073e6;
-
-  /* Ajuste estes valores se o seu header/midbar tiver outra altura */
-  --header-h: 00px;   /* altura estimada do header fixo (ajuste se necessário) */
-  --midbar-h: 56px;   /* altura estimada da midbar (se existir) */
-  --section-gap: 60px; /* espaço extra entre header e conteúdo */
-}
-
-
-body {
-  font-family: Gotham Office, arial, sans-serif;
+  font-family: Gotham Office, Arial, sans-serif;
   line-height: 1.6;
-background: #f3f3f3;
- 
+  background: #f3f3f3;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: 77%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Header */
-header {
+:root {
+  --bg: #fdfdfd;
+  --text: #222;
+  --accent: #0073e6;
+  --header-h: 80px;
+  --midbar-h: 56px;
+  --section-gap: 60px;
+}
 
+/* ===========================
+   HEADER
+=========================== */
+header {
   position: fixed;
   top: 0;
   right: 0;
   width: 100%;
-  background: #0e0e0e70;
+  background: #050505fd;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 9px 30px;
-  box-shadow: 0 0px 1px rgba(255, 255, 255, 0.893);
+  padding: 1px 30px;
+  box-shadow: 0 0px 1px rgba(255, 255, 255, 0.9);
   z-index: 1000;
 }
 
 .logo img {
-  height: 60px;
-  display: block;
-}
-
-.logo{
-  margin-right:0px;
+  height: 80px;
 }
 
 nav a {
   margin: 0 06px;
   text-decoration: none;
   color: #fff;
- 
+  text-transform: uppercase;
   transition: 0.3s;
-   text-transform: uppercase;
 }
 
 nav a:hover {
   color: #0077ff;
 }
 
-
-/* Header */
-
-
-/* Barra intermediária */
-.midbar {
-  width: 100%;
-  
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  background: #ffffff0c;
-  position: sticky;
-  top: 79px ; /* altura do header */
-  z-index: 999;
-}
-
-.midbar nav a {
-  margin: 0 30px;
-  text-decoration: none;
-  color: #ebebeb;
-  
-  transition: 0.3s;
-  text-align: center;
-}
-
-.midbar nav a:hover {
-  color: #df881f;
-}
-
-.midbar p{
-  color: #e6e5e5;
-}
-
-/* Barra intermediária */
-
-
-
-
-
- /* Menu  */
-
+/* ===========================
+   MENU MOBILE
+=========================== */
 .desktop-nav {
   display: none;
 }
 
-.desktop-nav a {
-  
-  text-decoration: none;
-  color: #fff;
-  
-  text-transform: uppercase;
-}
-
-.desktop-nav a:hover {
-  color: #0077ff;
-}
-
-/* Menu toggle mobile */
 .menu-toggle {
   font-size: 1.8rem;
   background: none;
   border: none;
-  color: rgb(255, 255, 255);
+  color: #fff;
   cursor: pointer;
 }
 
-
-
-/* Menu mobile */
 .menu {
   position: fixed;
   top: 0;
@@ -159,7 +88,7 @@ nav a:hover {
   width: 80%;
   max-width: 300px;
   height: 100%;
-  background: rgba(0,0,0,0.8); /* leve escuro */
+  background: rgba(0, 0, 0, 0.9);
   color: white;
   transition: right 0.3s ease-in-out;
   padding: 2rem 1rem;
@@ -174,7 +103,7 @@ nav a:hover {
   font-size: 2.4rem;
   background: none;
   border: none;
-  color: rgb(255, 255, 255);
+  color: #fff;
   float: right;
   cursor: pointer;
 }
@@ -210,279 +139,12 @@ nav a:hover {
   display: block;
 }
 
-
- /* Menu  */
-
-/* ================= FORMULÁRIO 
-
-
-form {
-  margin-top: 60px;
-  display: grid;
-  gap: 15px;
-  max-width: 1000px;
-  margin: 10px auto;
-}
-form input, form textarea {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-form textarea { resize: none; }
-form button {
-  padding: 12px;
-  border: none;
-  background: var(--accent);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-form button:hover { background: #005bb5; }
-h2 { font-size: 1.5rem; margin-top: 60px; }
-
-
-================= */
-
-/* ================= FORMULÁRIO ================= */
-.background{
-
-background-color: #000;
-
-}
-/* Formulário estilo Kojima, agora mais largo */
-#form-contato {
-  background-color: #fcfcfc; /* fundo escuro */
-  padding: 2rem;
-  border-radius: 1px;
-  max-width: 90%; /* aumenta a largura do formulário */
-  width: 90%; /* ocupa 90% da tela */
-  margin: 2rem auto;
- 
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-/* Labels */
-#form-contato label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #000000;
-  text-transform: uppercase;
-}
-
-/* Campos de entrada */
-#form-contato input,
-#form-contato textarea {
-  width: 100%; /* ocupa toda a largura do formulário */
-  padding: 0.8rem;
-  margin-bottom: 1.2rem;
-  border: 1px solid #444;
-  border-radius: 1px;
-  background-color: #222;
-  color: #fff;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s;
-  resize: none; /* remove o botão de redimensionar do textarea */
-}
-
-/* Altura fixa para o textarea da mensagem */
-#form-contato textarea {
-  height: 150px; /* você pode ajustar para o tamanho que quiser */
-}
-
-/* Foco nos campos */
-#form-contato input:focus,
-#form-contato textarea:focus {
-  border-color: #f0a500;
-}
-
-/* Botão */
-#form-contato button {
-  width: 100%;
-  padding: 0.9rem;
-  background-color: #eb9515;
-  color: #101010;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#form-contato button:hover {
-  background-color: #d7d7d7;
-}
-
-
-
-
-/* ================= RODAPÉ ================= */
-footer, .site-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: auto;
-}
-
-/* ================= RESPONSIVIDADE ================= */
-
-/* Desktop grande */
-@media (min-width: 1068px) {
-  .desktop-nav { display: flex; }
-  .menu-toggle, .menu, .nav-toggle { display: none; }
-  .sidebar-right { display: block; }
-  .projetos { margin-right: 20px; } /* Ajuste opcional */
-}
-
-/* Laptop / Desktop médio */
-@media (max-width: 1400px) {
-  .projetos { margin-right: 0; }
-  .sidebar-right { display: none; }
-}
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .desktop-nav { display: none; }
-  .nav-toggle { display: inline-flex; }
-
-  :root { --header-h: 70px; --section-gap: 24px; --midbar-h: 44px; }
-
-  section { padding: calc(var(--header-h) + 24px) 16px 36px 16px; }
-  #apresentacao { padding: calc(var(--header-h) + 60px) 16px 50px 16px; }
-
-  .logo img { height: 52px; }
-  .card img { height: 200px; }
-
-  .nav-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo { flex-shrink: 0; }
-  .nav-toggle { margin-left: auto; }
-}
-
-/* Mobile grande */
-@media (max-width: 768px) {
-  :root { --header-h: 66px; --section-gap: 20px; --midbar-h: 40px; }
-
-  section { padding: calc(var(--header-h) + 18px) 12px 32px 12px; }
-  #apresentacao { padding: calc(var(--header-h) + 50px) 12px 40px 12px; }
-
-  .logo img { height: 48px; }
-  .card img { height: 180px; }
-}
-
-/* Mobile pequeno / WebView Instagram */
-@media (max-width: 100px) {
-  :root { --header-h: 60px; --section-gap: 16px; --midbar-h: 36px; }
-
-  section { padding: calc(var(--header-h) + 16px) 10px 28px 10px; }
-  #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
-
-  .logo img { height: 44px; }
-  .card img { height: 30px ; }
-  .card { height:30px ; }
-  .card p{font-size: 3px;
-  }
-  .card h3{ 
-    font-size: 6px;
-  }
-}
-
-/* ================= ACESSIBILIDADE ================= */
-a, button { outline-color: rgba(0,0,0,0.12); }
-:focus { outline: 3px solid rgba(0,0,0,0.06); outline-offset: 2px; }
-
-
-
-
-
-
-
-
-
-.contact{
-  background-image: url('fundo.jpg'); /* coloque aqui sua imagem de fundo */
- 
-  color: #000000;
-  padding: 100px 40px;
-  text-align: center;
- 
-
-}
-
-.contact-content {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  z-index: 1;
-}
-
-.contact-content h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.contact-content p {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #dcdcdc;
-}
-
-.contact-content a {
-  color: #4e4e4e;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.contact-btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 24px;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  background: linear-gradient(to right, #e1e1e1, #c9c9c9);
-  color: #000;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  letter-spacing: 1px;
-  box-shadow: 3px 3px 0 #000;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.contact-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 #b05717;
-}
-
-
-
-
-
-
-
-
-
-/* =================== CABEÇALHO =================== */
-
-
-
+/* ===========================
+   CABEÇALHO DE PÁGINA (CONTRATOS)
+=========================== */
 .policy-header {
-  background-color: #ffffff02;
-  border-bottom: 1px solid #000000;
+  background-color: #391a1a02;
+  border-bottom: 1px solid #000;
   padding: 80px 40px;
   margin-top: 100px;
 }
@@ -497,26 +159,24 @@ a, button { outline-color: rgba(0,0,0,0.12); }
 }
 
 .policy-text h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Gotham Office' arial, sans-serif, ;
   font-size: 2.3rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin: 0;
   color: #000;
+  border: none;
 }
 
 .policy-text .last-revised {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   margin-top: 20px;
-  letter-spacing: 1px;
-  color: #000;
+  color: #4e4e4e;
 }
 
 .policy-logo img {
-  width: 230px;
-  height: auto;
+  width: 360px;
 }
 
 /* Responsivo */
@@ -535,14 +195,24 @@ a, button { outline-color: rgba(0,0,0,0.12); }
   }
 
   .policy-logo img {
-    width: 180px;
+    width: 280px;
   }
 }
-/* =================== CONTEÚDO =================== */
+
+/* ===========================
+   CONTEÚDO PRINCIPAL
+=========================== */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .content {
   max-width: 900px;
   margin: 4rem auto;
   padding: 0 1.5rem;
+  flex-grow: 1;
 }
 
 .intro h2 {
@@ -557,7 +227,6 @@ a, button { outline-color: rgba(0,0,0,0.12); }
   color: #333;
 }
 
-/* =================== SEÇÕES =================== */
 .section {
   margin-top: 4rem;
 }
@@ -581,133 +250,156 @@ a, button { outline-color: rgba(0,0,0,0.12); }
   font-size: 1rem;
 }
 
-/* =================== RODAPÉ =================== */
+/* ===========================
+   SEÇÃO DE CONTATO (KOJIMA STYLE)
+=========================== */
+.contact {
+  margin-top: auto;
+  flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  background: url('website.jpg') center center / cover no-repeat;
+  display: block;
+  font-family: 'Arial', sans-serif;
+}
+
+.contact-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-content {
+  color: #fff;
+  text-align: left;
+  max-width: 800px;
+  padding: 40px;
+}
+
+.contact-content h2 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.contact-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.contact-content a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.contact-btn {
+  background: #393939;
+  border: none;
+  color: #000000;
+  font-weight: 700;
+  padding: 10px 28px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #c27629;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   RODAPÉ
+=========================== */
 .footer {
   background: #000;
   color: #fff;
   padding: 2rem 1.5rem;
   text-align: center;
+  flex-shrink: 0;
 }
 
-.footer-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.footer-content p {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.social-icons img {
+.footer .social a img {
   width: 24px;
   height: 24px;
+  margin: 0 6px;
   opacity: 0.8;
   transition: opacity 0.2s;
 }
 
-.social-icons img:hover {
+.footer .social a img:hover {
   opacity: 1;
 }
 
-/* =================== RESPONSIVIDADE =================== */
-@media (max-width: 768px) {
-  .content {
-    margin: 3rem auto;
-  }
-
-  .brand-name {
-    font-size: 1.5rem;
-  }
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 }
 
-
-
-.contact-section {
-  background-image: url('fundo.jpg'); /* coloque aqui sua imagem de fundo */
-  background-size: cover;
-  background-position: center;
-  color: #000000;
-  padding: 100px 40px;
-  text-align: left;
-  position: relative;
-}
-
-.contact-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.509);
-  backdrop-filter: blur(4px);
-}
-
-.contact-content {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  z-index: 1;
-}
-
-.contact-content h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.contact-content p {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #dcdcdc;
-}
-
-.contact-content a {
-  color: #4e4e4e;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.contact-btn {
+.footer-links li {
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 24px;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  background: linear-gradient(to right, #e1e1e1, #c9c9c9);
-  color: #000;
-  border: none;
-  cursor: pointer;
+  margin: 0 10px;
+}
+
+.footer-links a {
+  color: #fff;
   text-decoration: none;
-  letter-spacing: 1px;
-  box-shadow: 3px 3px 0 #000;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 #b05717;
+.footer-links a:hover {
+  color: #0077ff;
 }
 
-/* Responsivo */
+.back-to-top {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-to-top:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+@media (min-width: 1068px) {
+  .desktop-nav { display: flex; }
+  .menu-toggle, .menu { display: none; }
+}
+
+@media (max-width: 1024px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .logo img { height: 52px; }
+}
+
 @media (max-width: 768px) {
-  .contact-content h2 {
-    font-size: 2rem;
-  }
-  .contact-content p {
-    font-size: 1rem;
-  }
-  .contact-btn {
-    padding: 10px 20px;
-  }
+  .logo img { height: 48px; }
+  .content { padding: 0 1rem; }
 }
+
+@media (max-width: 480px) {
+  .policy-text h1 { font-size: 1.4rem; }
+  .contact-content h2 { font-size: 32px; }
+}
+
+/* ===========================
+   ACESSIBILIDADE
+=========================== */
+a, button { outline-color: rgba(0,0,0,0.12); }
+:focus { outline: 3px solid rgba(0,0,0,0.06); outline-offset: 2px; }

@@ -35,7 +35,7 @@ html, body {
 
 
 body {
-  font-family: Gotham Office, arial, sans-serif;
+  font-family: 'Gotham Office', arial, sans-serif;
   line-height: 1.6;
 background: #000000;
  
@@ -55,13 +55,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 9px 30px;
+  padding: 1px 30px;
   box-shadow: 0 0px 1px rgba(255, 255, 255, 0.893);
   z-index: 1000;
 }
 
 .logo img {
-  height: 60px;
+  height: 80px;
   display: block;
 }
 
@@ -95,7 +95,7 @@ nav a:hover {
   justify-content: center;
   background: #ffffff0c;
   position: sticky;
-  top: 79px ; /* altura do header */
+  top: 89px ; /* altura do header */
   z-index: 999;
 }
 
