@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <title>Meu Portfólio</title>
-  <link rel="stylesheet" href="css/index.css">
-   <link rel="stylesheet" href="css/SeçãoContato.css">
-  <script src="Javascript/index.js" defer></script>
-  <link rel="stylesheet" href="css/inicial.css">
-   <script src="Javascript/inicial.js" defer></script>
+  <link rel="stylesheet" href="css/Cinematic.css">
+ 
+  <script src="Javascript/Injetar projetos.js" defer></script>
+  <script src="Javascript/inicial.js" defer></script>
+    <link rel="stylesheet" href="css/inicial.css">
   <!-- Importando os ícones do Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -48,66 +48,55 @@
     </ul>
   </nav>
 
-  <!-- BARRA INTERMEDIÁRIA 
-  <div class="midbar">
-    <nav>
-      <a href="index.html" class="btn-work">projetos</a>
-      <a href="index.html" class="btn-contact">Contato</a>
-    </nav>
-  </div>
--->
-  <!-- SEÇÃO SOBRE -->
-  <section id="sobre">
-    <div class="titulo">
-      <h1>OLÁ, meu nome é ARTHUR — BEM-VINDO AO MEU PORTFÓLIO</h1>
-    </div>
-   <!--- <p>
-Sou designer gráfico com formação em design e desenvolvimento de websites, unindo criatividade visual e conhecimento técnico. Atuo na criação de identidades visuais, Social Media, posts em geral, arte esportiva e arte de filmes, explorando estilos que conectam emoção e estética. Também desenvolvo projetos digitais completos, estruturando sites em HTML, CSS e JavaScript.
-Meu portfólio reflete meu estilo de trabalho — visuais marcantes, soluções criativas e constante evolução.
-    </p>-->
-   
-  </section>
-
-  <!-- SEÇÃO PROJETOS -->
-  <section id="work-section">
-    <h2>Meus Projetos</h2>
-    <div class="projetos">
-      <!-- JS vai preencher os cards automaticamente -->
-    </div>
-  </section>
-
- 
-  <!-- SEÇÃO CONTATO -->
-  <section id="contact-section">
-    <h2>Contato</h2>
-     <p>Conecte-se comigo pelas redes sociais:</p>
   
-  <div class="social-links">
-    <a href="https://www.instagram.com/js.moraes_/" target="_blank" rel="noopener noreferrer "class="instagram">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-    <a href="https://wa.me/5548988654207"  target="_blank" rel="noopener noreferrer "class="whatsapp">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
-    <a href="https://www.linkedin.com/in/arthur-morais-a95030381/"  target="_blank" rel="noopener noreferrer" class="linkedin">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
-  </div>
+     <!-- HERO -->
+    <section class="hero reveal-mask">
+      <div class="hero-inner">
+        <div class="hero-media" aria-hidden="true">
+          <!-- substitua hero.mp4 por hero.jpg ou hero.webp se preferir imagem -->
+          <img src="img/hero.jpg" alt="Hero — Arthur Morais" loading="eager">
+          <div class="hero-gradient"></div>
+        </div>
 
-</section>
+        <div class="hero-copy">
+          <div class="eyebrow">Portfólio • Visual Design</div>
+          <h1 class="hero-title">Olá, eu sou <span class="accent">Arthur</span><br/>Design Visual & Concept Art</h1>
+          <p class="hero-sub">Cortes cinematográficos, tipografia editorial e direção visual para marcas, capas e projetos pessoais. Clique em qualquer projeto para ver detalhes.</p>
+
+          <div class="hero-ctas">
+            <a class="btn-primary" href="#work">Ver Projetos</a>
+            <a class="btn-ghost" href="#contact">Contato</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT (pequena bio para dar peso) -->
+    <section id="about" class="section about-section reveal-mask">
+      <div class="section-inner narrow">
+        <h2 class="section-title">Sobre</h2>
+        <p class="section-sub">Sou designer gráfico e concept artist, especializado em identidade visual, direção de arte e ilustração digital. Trabalho com composições cinematográficas, cores fortes e tipografia editorial.</p>
+      </div>
+    </section>
+
+ <!-- WORK / PROJECTS -->
+    <section id="work" class="work-section section">
+      <div class="section-inner">
+        <header class="section-head reveal-mask">
+          <h2 class="section-title">Meus Projetos</h2>
+          <p class="section-sub">Clique no projeto para abrir a página específica.</p>
+        </header>
+
+        <div id="projectsGrid" class="projects-grid" aria-live="polite">
+          <!-- cards injetados via JS -->
+        </div>
+      </div>
+    </section>
 
 
-<section class="contact">
-     <div class="contact-content">
-    <h2>CONTATE-NOS</h2>
-    <p>
-      Clique no botão abaixo para nos enviar um e-mail. 
-    
-      <a href="mailto:origowlcontrato@gmail.com">origowlcontratos@gmail.com</a>
-    </p>
-    <a href="mailto:origowlcontrato@gmail.com" class="contact-btn">ENVIE-NOS UM E-MAIL</a>
-  </div>
-</section>
+
+     
+
 
   <!-- RODAPÉ -->
   <footer class="footer">

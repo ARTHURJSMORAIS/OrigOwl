@@ -3,19 +3,24 @@
 }
 
 
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-    box-sizing: border-box;
-  overflow-x: hidden;
-  -webkit-user-select: none; /* Chrome, Safari antigos */
-  -moz-user-select: none;    /* Firefox antigo */
-  -ms-user-select: none;     /* Edge antigo */
-  user-select: none;         /* Padrão moderno */
-  -webkit-text-size-adjust: 77%; /* suporte antigo (opcional) */
-         /* versão moderna */
+:root{
+  --bg:#000;
+  --panel:#0f0f10;
+  --muted:#9b9b9b;
+  --accent:#ffd400;
+  --white:#fff;
+  --gap: clamp(18px,2.6vw,48px);
+  --max-width:1200px;
+  --header-h:84px;
+  --transition: 520ms cubic-bezier(.2,.9,.3,1);
 }
+
+/* Reset */
+*
+html,body{height:100%;background:var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; -webkit-font-smoothing:antialiased}
+
+
+
 
 
 /* ================= RESET & VARIÁVEIS ================= */
@@ -35,7 +40,9 @@ html, body {
 
 
 body {
-  font-family: 'Gotham Office', arial, sans-serif;
+  height:100%;background:var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; -webkit-font-smoothing:antialiased;
+
+  min-height: 100vh;
   line-height: 1.6;
 background: #000000;
  
@@ -133,7 +140,7 @@ nav a:hover {
 }
 
 .menu-toggle {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   background: none;
   border: none;
   color: #fff;
@@ -323,26 +330,6 @@ h2,.work-s-ection {
    order:1;
 
    }
-
-/* ================= SOBRE ================= */
-#sobre {
-  margin-top: 70px;
-  color: #ffffff;
-
-  line-height: 38px;
- 
-}
-.tetulo, h1 {
-  font-size: 30px;
-  text-align: center;
-  color: #ffffff;
-}
-
-
-
- #sobre p{
-    text-align: justify;
-  }
 
 
 section h1 .tetulo  .work-s-ection {
