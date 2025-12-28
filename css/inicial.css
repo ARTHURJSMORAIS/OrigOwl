@@ -95,6 +95,7 @@
   width: 100%;
   overflow: hidden;
   background-color: #000;
+   -webkit-text-size-adjust: 76%;
 }
 
 .carrossel-container {
