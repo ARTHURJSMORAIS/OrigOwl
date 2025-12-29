@@ -431,70 +431,122 @@ main {
    RESPONSIVIDADE
 =========================== */
 
+/* =====================================================
+   OVERRIDES DE OTIMIZAÇÃO (SEM ALTERAR LAYOUT BASE)
+   Mobile + Instagram WebView
+===================================================== */
 
-/* Desktop grande */
-@media (min-width: 1050px) {
-  .desktop-nav { display: flex; }
-  .menu-toggle, .menu, .nav-toggle { display: none; }
-  .sidebar-right { display: block; }
-  .projetos { margin-right: 20px; } /* Ajuste opcional */
-}
+/* Correções gerais WebView */
+@media (max-width: 480px) {
 
-/* Tablets e laptops médios */
-@media (max-width: 1050px) {
-  .desktop-nav { display: none; }
-  .sidebar-right { display: none; }
-  .nav-toggle { display: inline-flex; } /* garante que o botão apareça */
-  .projetos { margin-right: 0; }
-}
-
-/* Tablets */
-@media (max-width: 800px) {
-  :root { --header-h: 70px; --section-gap: 24px; --midbar-h: 44px; }
-
-  section { padding: calc(var(--header-h) + 24px) 16px 36px 16px; }
-  #apresentacao { padding: calc(var(--header-h) + 60px) 16px 50px 16px; }
-
-  .logo img { height: 52px; }
-  .card img { height: 200px; }
-
-  .nav-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
-  .logo { flex-shrink: 0; }
-  .nav-toggle { margin-left: auto; display: inline-flex; }
+
+  /* Evita quebra de altura em 100vh (bug do Instagram) */
+  .hero {
+    min-height: auto;
+  }
+
+  /* Header: mantém no lugar, só reduz impacto visual */
+  header {
+    padding: 6px 16px;
+  }
+
+  .logo img {
+    max-height: 56px;
+    height: auto;
+    width: auto;
+  }
+
+  /* Menu mobile – apenas conforto visual */
+  .menu {
+    padding-top: calc(var(--header-h) + 20px);
+  }
+
+  .menu ul li a {
+    font-size: 1rem;
+  }
+
+  /* HERO – não muda estrutura */
+  .hero-inner {
+    gap: 24px;
+  }
+
+  .hero-media {
+    min-height: 260px;
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Grid de projetos – evita imagem gigante */
+  .projects-grid {
+    gap: 18px;
+  }
+
+  .project-card {
+    min-height: 220px;
+  }
+
+  .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-copy {
+    padding: 18px;
+  }
+
+  .project-copy h3 {
+    font-size: 16px;
+  }
+
+  .project-copy p {
+    font-size: 13px;
+  }
+
+  /* Garante que nada invada o header */
+  section,
+  .section-inner,
+  .projects-grid {
+    position: relative;
+    z-index: 1;
+  }
+
+  header {
+    z-index: 1000;
+  }
 }
 
-/* Mobile grande */
-@media (max-width: 600px) {
-  :root { --header-h: 66px; --section-gap: 20px; --midbar-h: 40px; }
+/* Mobile MUITO pequeno (Instagram comum) */
+@media (max-width: 380px) {
 
-  section { padding: calc(var(--header-h) + 18px) 12px 32px 12px; }
-  #apresentacao { padding: calc(var(--header-h) + 50px) 12px 40px 12px; }
+  .hero-title {
+    font-size: clamp(26px, 8vw, 36px);
+  }
 
-  .logo img { height: 58px; }
-  .card img { height: 180px; }
+  .hero-sub {
+    font-size: 13px;
+  }
 
-  .nav-toggle { display: inline-flex; } /* garante que continue aparecendo */
+  .view-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .miniaturas img {
+    width: 60px;
+    height: 80px;
+  }
 }
 
-/* Mobile pequeno / WebView Instagram */
-@media (max-width: 400px) {
-  :root { --header-h: 60px; --section-gap: 16px; --midbar-h: 36px; }
-
-  section { padding: calc(var(--header-h) + 16px) 10px 28px 10px; }
-  #apresentacao { padding: calc(var(--header-h) + 40px) 10px 36px 10px; }
-
-  .logo img { height: 54px; }
-  .card img { height: 90px; }
-  .card { height: 90px; }
-  .card p { font-size: 3px; }
-  .card h3 { font-size: 6px; }
-
-  .nav-toggle { display: inline-flex; } /* também visível aqui */
-}
 
 /* ===========================
    ACESSIBILIDADE

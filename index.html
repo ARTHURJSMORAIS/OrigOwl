@@ -2,53 +2,52 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
- 
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- VIEWPORT CORRIGIDO PARA INSTAGRAM -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 
   <title>Meu Portfólio</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/Cinematic.css">
- 
+  <link rel="stylesheet" href="css/inicial.css">
+
+  <!-- JS -->
   <script src="Javascript/Injetar projetos.js" defer></script>
   <script src="Javascript/inicial.js" defer></script>
-    <link rel="stylesheet" href="css/inicial.css">
-  <!-- Importando os ícones do Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <a href="inicial.html" class="logo">
-      <img src="img/logo.svg" alt="Meu logo">
-    </a>
+<header class="site-header">
+  <a href="inicial.html" class="logo">
+    <img src="img/logo.svg" alt="Meu logo">
+  </a>
 
-    <nav class="desktop-nav">
-      <a href="inicial.html">Home</a>
-      <a href="Contratos.html">Contrato</a>
-    
-      <!---<a href="#" class="btn-contact">Sobre</a> -->
-    </nav>
-
-    <!-- Botão menu mobile -->
-    <button id="menu-toggle" class="menu-toggle">&#9776;</button>
-  </header>
-
-  <!-- MENU DOBRÁVEL MOBILE -->
-  <nav id="menu" class="menu">
-    <button id="close-btn" class="close-btn">&times;</button>
-    <ul>
-        <li><a href="inicial.html">Home</a></li>
-      <li><a href="Contratos.html">Contrato</a></li>
-     <!---- <li class="has-submenu"><a href="LojaemBreve.HTML">Breve</a>
-        <ul class="submenu">
-          <li><a href="LojaemBreve.HTML">Breve</a></li>
-           <li><a href="#">Contato</a></li>! -->
-        </ul>
-      </li>
-    </ul>
+  <nav class="desktop-nav">
+    <a href="inicial.html">Home</a>
+    <a href="Contratos.html">Contrato</a>
   </nav>
 
-  
+  <button id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Abrir menu">
+    ☰
+  </button>
+</header>
+
+<nav id="menu" class="menu">
+  <button id="close-btn" class="close-btn" aria-label="Fechar menu">×</button>
+  <ul>
+    <li><a href="inicial.html">Home</a></li>
+    <li><a href="Contratos.html">Contrato</a></li>
+  </ul>
+</nav>
      <!-- HERO -->
     <section class="hero reveal-mask">
       <div class="hero-inner">
