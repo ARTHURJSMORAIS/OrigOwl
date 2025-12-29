@@ -14,7 +14,7 @@
   --header-h:84px;
   --transition: 520ms cubic-bezier(.2,.9,.3,1);
 }
-*{box-sizing:border-box;margin:0;padding:0}
+
 /* Reset */
 
 html,body{
@@ -38,11 +38,6 @@ html,body{
   --text: #222;
   --accent: #0073e6;
 
-  /* Ajuste estes valores se o seu header/midbar tiver outra altura */
-  --header-h: 00px;   /* altura estimada do header fixo (ajuste se necessário) */
-  --midbar-h: 56px;   /* altura estimada da midbar (se existir) */
-  --section-gap: 60px; /* espaço extra entre header e conteúdo */
-}
 
 
 body {

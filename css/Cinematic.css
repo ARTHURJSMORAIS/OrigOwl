@@ -2,20 +2,8 @@
    Acento = #ffd400 (amarelo)
 */
 
-:root{
-  --bg:#000;
-  --panel:#0f0f10;
-  --muted:#9b9b9b;
-  --accent:#ffd400;
-  --white:#fff;
-  --gap: clamp(18px,2.6vw,48px);
-  --max-width:1200px;
-  --header-h:84px;
-  --transition: 520ms cubic-bezier(.2,.9,.3,1);
-}
-
 /* Reset */
-*{box-sizing:border-box;margin:0;padding:0}
+
 html,body{
     background:var(--bg);
     color:var(--white);
