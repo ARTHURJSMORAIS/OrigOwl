@@ -31,8 +31,7 @@ html,body{
 
 /* ================= RESET & VARIÁVEIS ================= */
 /* Reset mínimo */
-* { margin: 0; padding: 0; 
-  box-sizing: border-box; }
+
 
 :root{
   --bg: #fdfdfd;
