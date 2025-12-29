@@ -21,9 +21,7 @@ html,body{
   background:var(--bg);
   color:var(--white);
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; 
-  -webkit-font-smoothing:antialiased; min-height: 100vh;
-
-}
+  -webkit-font-smoothing:antialiased}
 
 
 
@@ -31,7 +29,8 @@ html,body{
 
 /* ================= RESET & VARIÁVEIS ================= */
 /* Reset mínimo */
-
+* { margin: 0; padding: 0; 
+  box-sizing: border-box; }
 
 :root{
   --bg: #fdfdfd;
@@ -474,7 +473,7 @@ h2 { font-size: 1.5rem; margin-top: 60px; }
 
   /* Evita quebra de altura em 100vh (bug do Instagram) */
   .hero {
-    min-height: 100vh;
+    min-height: 70vh;
   }
 
   /* Header: mantém no lugar, só reduz impacto visual */
