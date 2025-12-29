@@ -67,10 +67,6 @@ contactBtns.forEach(btn => {
 
 
 
-
-window.addEventListener("resize", atualizarVisibilidadeProjetos);
-window.addEventListener("DOMContentLoaded", atualizarVisibilidadeProjetos);
-atualizarVisibilidadeProjetos();
 /* --------------------------- AJUSTE DE SIDEBAR --------------------------- */
 function ajustarSidebar() {
   const footer = document.querySelector("footer");
