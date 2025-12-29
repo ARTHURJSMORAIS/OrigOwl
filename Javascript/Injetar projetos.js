@@ -41,20 +41,114 @@ document.addEventListener('click', e => {
 
 /* --- Projects list (usei exatamente seus títulos/descrições/links; corrija paths se necessário) --- */
 const projetos = [
-  { titulo: "Social Media & Resort Concept Design", descricao: "Projeto de identidade visual e social media inspirado no pinguim-de-Magalhães.", imagem: "img/Litoral Magalhão design.jpg", link: "projeto07.html" },
-  { titulo: "Branding Retrô | Atomic Diner – Identidade Completa", descricao: "Identidade visual retrô inspirada nos anos 50.", imagem: "img/01.jpg", link: "projeto08.html" },
-  { titulo: "PragX – Proteção Profissional contra Pragas", descricao: "Projeto desenvolvido para controle de pragas urbanas.", imagem: "img/PragX03.png", link: "projeto11.html" },
-  { titulo: "Projeto pessoal — Sorriso & Saúde Odontologia", descricao: "Identidade visual desenvolvida para clínica fictícia de odontologia.", imagem: "projeto14.img/10.jpg", link: "projeto14.html" },
-  { titulo: "A FILM BY SAM MENDES", descricao: "1917 – Pôster conceitual (arte digital semi-realista).", imagem: "projeto12.img/1917 01.jpg", link: "projeto12.html" },
-  { titulo: "The Mandalorian — Poster Art", descricao: "Original do universo Star Wars.", imagem: "projeto02.img/The Mandalorian 01.jpg", link: "projeto02.html" },
-  { titulo: "Avatar: Art — The Way of Water", descricao: "Art inspired by The Way of Water.", imagem: "img/avatar 01.jpg", link: "projeto01.html" },
-  { titulo: "Formula 1 Visual Design", descricao: "SPEED & PERFORMANCE — identidade visual F1.", imagem: "img/Max Verstappen.jpg", link: "projeto03.html" },
-  { titulo: "Variações Visuais | William Lima", descricao: "Três variações de personagem desenvolvidas a partir de photobash.", imagem: "projeto04.img/01.jpg", link: "projeto04.html" },
-  { titulo: "Stage 4 – Glacial Sector", descricao: "Manipulação digital focada em narrativa visual.", imagem: "img/Stage 4 – Glacial Sector.jpg", link: "projeto05.html" },
-  { titulo: "Cairo GP — Visual Concept", descricao: "Como seria uma corrida de Fórmula 1 no Egito?", imagem: "img/Hamilton 2.jpg", link: "projeto06.html" },
-  { titulo: "The New Son of Krypton", descricao: "Concept art inspirada no Superman de James Gunn.", imagem: "img/Superman DESIGN.jpg", link: "projeto09.html" },
-  { titulo: "Composição Visual de Glória e Unidade", descricao: "Composição centrada na celebração coletiva.", imagem: "projeto13.img/champions league.jpg", link: "projeto13.html" },
-  { titulo: "Fantastic Four Reimagined – Visual Concept Art (2025)", descricao: "Cartaz 2025 — reinterpretação visual.", imagem: "img/Fantastic Four.jpg", link: "projeto10.html" }
+
+{ titulo: "Social Media & Resort Concept Design", 
+  descricao: "Projeto de identidade visual e social media inspirado no pinguim-de-Magalhães 🐧✨ ",
+imagem: "img/Litoral Magalhão design.jpg", 
+link: "projeto07.html" },
+
+
+
+{ titulo: "Branding Retrô | Atomic Diner – Identidade Completa", 
+  descricao: "A identidade visual do Atomic Diner  hamburguerias americanas dos anos 50. ",
+imagem: "img/01.jpg", 
+link: "projeto08.html" },
+
+{ titulo: "PragX – Proteção Profissional contra Pragas", 
+  descricao: "Este projeto foi desenvolvido para uma empresa do segmento de controle de pragas urbanas ",
+imagem: "img/PragX03.png", 
+link: "projeto11.html" },
+
+
+
+{ titulo: "Projeto pessoal — Sorriso & Saúde Odontologia", 
+  descricao: "dentidade visual desenvolvida para uma clínica fictícia de odontologia",
+imagem: "projeto14.img/10.jpg", 
+link: "projeto14.html" },
+
+{ titulo: "A FILM BY SAM MENDES", 
+  descricao: "1917 – Pôster conceitual (arte digital semi-realista)",
+imagem: "projeto12.img/1917 01.jpg", 
+link: "projeto12.html" },
+
+
+
+
+  { titulo: "The Mandalorian —  Poster Art", 
+  descricao: "Original do universo Star Wars", 
+imagem: "projeto02.img/The Mandalorian 01.jpg", 
+link: "projeto02.html" },
+
+
+  { titulo: "Avatar: Art— The Way of Water", 
+  descricao: "Art inspired by the universe of Avatar: The Way of Water.", 
+imagem: "img/avatar 01.jpg", 
+link: "projeto01.html" },
+
+
+  { titulo: "Formula 1 Visual Design", 
+  descricao: "SPEED & PERFORMANCE Formula 1 Visual Identity",
+   imagem:"img/Max Verstappen.jpg",
+    link: "projeto03.html" },
+
+
+  { titulo: "Variações Visuais | William Lima", 
+  descricao: "Três variações de personagem desenvolvidas a partir de photobash.", 
+imagem: "projeto04.img/01.jpg", 
+link: "projeto04.html" },
+
+
+
+
+{ titulo: "Stage 4 – Glacial Sector", 
+  descricao: "é um projeto de manipulação digital com foco em narrativa visual.",
+imagem: "img/Stage 4 – Glacial Sector.jpg", 
+link: "projeto05.html" },
+
+
+
+
+{ titulo: "Cairo GP — Visual Concept", 
+  descricao: " Como seria uma corrida de Fórmula 1 no Egito?",
+imagem: "img/Hamilton 2.jpg", 
+link: "projeto06.html" },
+
+
+
+
+
+
+{ titulo: "The New Son of Krypton", 
+  descricao: "Concept art inspirada no Superman de James Gunn. ",
+imagem: "img/Superman DESIGN.jpg", 
+link: "projeto09.html" },
+
+
+
+
+{ titulo: "Composição Visual de Glória e Unidade)", 
+  descricao: " A arte utiliza uma composição centrada na celebração coletiva, reforçando a narrativa de conquista. ",
+imagem: "projeto13.img/champions league.jpg", 
+link: "projeto13.html" },
+
+
+
+
+
+{ titulo: "Fantastic Four Reimagined – Visual Concept Art (2025)", 
+  descricao: " arte (2025) cartaz. Reinterpretação visual ",
+imagem: "img/Fantastic Four.jpg", 
+link: "projeto10.html" },
+
+
+
+
+
+{ titulo: "Interestelar", 
+  descricao: " arte Interestelar cartaz.  ",
+imagem: "projeto15.img/Interestelar copiar.jpg", 
+link: "projeto15.html" },
+
 ];
 
 /* Inject project cards */
