@@ -24,20 +24,6 @@ if (submenus) {
     });
   });
 }
-/* Smooth scroll internal */
-document.addEventListener('click', e => {
-  const a = e.target.closest('a');
-  if (!a) return;
-  const href = a.getAttribute('href') || '';
-  if (href.startsWith('#')) {
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - 16;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  }
-});
 
 /* --- Projects list (usei exatamente seus títulos/descrições/links; corrija paths se necessário) --- */
 const projetos = [
@@ -145,7 +131,7 @@ link: "projeto10.html" },
 
 
 { titulo: "Interestelar", 
-  descricao: " arte Interestelar cartaz.  ",
+  descricao: " arte Interestelar cartaz. ",
 imagem: "projeto15.img/Interestelar copiar.jpg", 
 link: "projeto15.html" },
 

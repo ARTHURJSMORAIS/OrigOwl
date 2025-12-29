@@ -90,7 +90,7 @@
 
 /* ===== CARROSSEL ===== */
 .carrossel {
-  margin-top: 100px; /* espaço pro menu fixo */
+  margin-top: 90px; /* espaço pro menu fixo */
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -147,11 +147,9 @@
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
-  .carrossel-container .carrossel {
-    height: 90vh;
-    top: 1VH;
+  .carrossel-container {
+    height: 50vh;
     }
-   
     .video-banner {
       height: 60vh;
   }
@@ -171,97 +169,4 @@
   width: 100%;
   height: 90%;
   object-fit: cover;
-}
-/* =========================================
-   CORREÇÃO REAL — MOBILE / INSTAGRAM
-   SEM MEXER NA ESTRUTURA
-========================================= */
-
-@media (max-width: 480px) {
-
-  /* Corrige explosão de layout */
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
-   
-  }
-
-  /* Garante que variáveis não quebrem layout */
-  :root {
-    --header-h: 70px;
-  }
-
-  /* Header: só ajuste visual */
-  header {
-    padding: 6px 16px;
-  }
-
-  .logo img {
-    height: 56px;
-    max-height: 56px;
-    width: auto;
-  }
-
-  /* Carrossel NÃO muda de lugar */
-  .carrossel-container {
-    height: 60vh;
-  }
-
-  /* Miniaturas proporcionais */
-  .miniaturas img {
-    width: 64px;
-    height: 90px;
-  }
-
-  /* Cards: mantém leitura */
-  .card {
-    height: auto;
-  }
-
-  .card img {
-    height: 180px;
-  }
-
-  .card h3 {
-    font-size: 14px;
-  }
-
-  .card p {
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  /* Sobre */
-  .texto h2 {
-    font-size: 22px;
-  }
-
-  .texto p {
-    font-size: 14px;
-  }
-}
-
-/* Mobile MUITO pequeno (Instagram comum) */
-@media (max-width: 380px) {
-
-  .logo img {
-    height: 50px;
-  }
-
-  .miniaturas img {
-    width: 56px;
-    height: 78px;
-  }
-
-  .card img {
-    height: 160px;
-  }
-
-  .card h3 {
-    font-size: 13px;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
 }
