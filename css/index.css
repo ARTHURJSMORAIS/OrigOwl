@@ -548,7 +548,7 @@ a, button { outline-color: rgba(0,0,0,0.12); }
 
   /* Evita quebra de altura em 100vh (bug do Instagram) */
   .hero {
-    min-height: auto;
+    min-height: 100PX;
   }
 
   /* Header: mantém no lugar, só reduz impacto visual */
