@@ -462,12 +462,12 @@ h2 { font-size: 1.5rem; margin-top: 60px; }
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-     min-height: 90vh;
+     min-height: 80vh;
   }
 
   /* Evita quebra de altura em 100vh (bug do Instagram) */
   .hero {
-    min-height: 90vh;
+    min-height: 80vh;
   }
 
   /* Header: mantém no lugar, só reduz impacto visual */
