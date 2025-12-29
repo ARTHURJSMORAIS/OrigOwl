@@ -468,7 +468,7 @@ h2 { font-size: 1.5rem; margin-top: 60px; }
     max-width: 100%;
     overflow-x: hidden;
      min-height: 70vh;
-     -webkit-text-size-adjust: 77%;
+     
   }
 
   /* Evita quebra de altura em 100vh (bug do Instagram) */
