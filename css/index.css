@@ -544,6 +544,7 @@ a, button { outline-color: rgba(0,0,0,0.12); }
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+     min-height: 90vh;
   }
 
   /* Evita quebra de altura em 100vh (bug do Instagram) */
