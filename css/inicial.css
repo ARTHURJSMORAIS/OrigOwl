@@ -148,7 +148,7 @@
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .carrossel-container {
-    height: 67vh;
+    height: 65vh;
     }
     .video-banner {
       height: 60vh;
