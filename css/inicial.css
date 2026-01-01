@@ -90,8 +90,8 @@
 
 /* ===== CARROSSEL ===== */
 .carrossel {
-  margin-top: 90px; /* espaço pro menu fixo */
-  position: relative;
+  margin-top: auto 80px ; /* espaço pro menu fixo */
+  position: ;
   width: 100%;
   overflow: hidden;
   background-color: #000;
@@ -100,7 +100,7 @@
 .carrossel-container {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +148,7 @@
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .carrossel-container {
-    height: 50vh;
+    height: 67vh;
     }
     .video-banner {
       height: 60vh;
