@@ -28,6 +28,34 @@ if (submenus) {
 /* --- Projects list (usei exatamente seus títulos/descrições/links; corrija paths se necessário) --- */
 const projetos = [
 
+
+
+{ titulo: "The Godfather", 
+  descricao: "Esta obra é uma peça autoral desenvolvida a partir do universo visual de O Poderoso Chefão.",
+imagem: "projeto16.img/The Godfather.jpg", 
+link: "projeto16.html" },
+
+
+ { titulo: "Variações Visuais | William Lima", 
+  descricao: "Três variações de personagem desenvolvidas a partir de photobash.", 
+imagem: "projeto04.img/01.jpg", 
+link: "projeto04.html" },
+
+{ titulo: "Interestelar", 
+  descricao: " arte Interestelar cartaz. ",
+imagem: "projeto15.img/Interestelar copiar.jpg", 
+link: "projeto15.html" },
+
+
+{ titulo: "A FILM BY SAM MENDES", 
+  descricao: "1917 – Pôster conceitual (arte digital semi-realista)",
+imagem: "projeto12.img/1917 01.jpg", 
+link: "projeto12.html" },
+
+
+
+
+
 { titulo: "Social Media & Resort Concept Design", 
   descricao: "Projeto de identidade visual e social media inspirado no pinguim-de-Magalhães 🐧✨ ",
 imagem: "img/Litoral Magalhão design.jpg", 
@@ -52,12 +80,6 @@ link: "projeto11.html" },
 imagem: "projeto14.img/10.jpg", 
 link: "projeto14.html" },
 
-{ titulo: "A FILM BY SAM MENDES", 
-  descricao: "1917 – Pôster conceitual (arte digital semi-realista)",
-imagem: "projeto12.img/1917 01.jpg", 
-link: "projeto12.html" },
-
-
 
 
   { titulo: "The Mandalorian —  Poster Art", 
@@ -78,11 +100,7 @@ link: "projeto01.html" },
     link: "projeto03.html" },
 
 
-  { titulo: "Variações Visuais | William Lima", 
-  descricao: "Três variações de personagem desenvolvidas a partir de photobash.", 
-imagem: "projeto04.img/01.jpg", 
-link: "projeto04.html" },
-
+ 
 
 
 
@@ -130,10 +148,6 @@ link: "projeto10.html" },
 
 
 
-{ titulo: "Interestelar", 
-  descricao: " arte Interestelar cartaz. ",
-imagem: "projeto15.img/Interestelar copiar.jpg", 
-link: "projeto15.html" },
 
 ];
 

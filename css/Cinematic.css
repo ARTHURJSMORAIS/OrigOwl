@@ -262,18 +262,27 @@ nav a:hover {
 .project-gradient{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.72) 100%);z-index:2;pointer-events:none}
 
 .project-copy{
-  position:relative;z-index:3;padding:28px;color:var(--white);width:100%;display:flex;flex-direction:column;gap:6px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.35));
+  position:relative;z-index:3;
+  padding:28px;color:var(--white);
+  width:90%;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+ 
 }
 .project-copy h3{font-size:clamp(18px,2.6vw,24px);margin-bottom:6px}
 .project-copy p{color:var(--muted);font-size:14px;max-width:56ch}
 .project-actions{margin-top:10px}
-.view-btn{display:inline-block;padding:8px 14px;border-radius:6px;background:var(--accent);color:#000;font-weight:700;text-decoration:none;transition:transform var(--transition)}
+.view-btn{display:inline-block;
+  padding:8px 14px;
+  border-radius:1px;
+  background:var(--accent);
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
+  transition:transform var(--transition)}
 .view-btn:hover{transform:translateY(-4px)}
 
-/* even cards style (alt) */
-.project-card.alt .project-copy{align-self:flex-start;padding:28px 28px 28px 48%;text-align:left}
-.project-card.alt .project-media{transform-origin:left center}
 
 /* Hover cinematic */
 .project-card:hover .project-media img{transform:scale(1.12) translateY(-6px)}
