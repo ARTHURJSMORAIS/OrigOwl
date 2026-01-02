@@ -1,114 +1,98 @@
+/* ================= RESET GLOBAL ================= */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-
-:root{
-  --bg:#000;
-  --panel:#0f0f10;
-  --muted:#9b9b9b;
-  --accent:#ffd400;
-  --white:#fff;
-  --gap: clamp(18px,2.6vw,48px);
-  --max-width:1200px;
-  --header-h:84px;
+:root {
+  --bg: #000;
+  --panel: #0f0f10;
+  --muted: #9b9b9b;
+  --accent: #ffd400;
+  --white: #fff;
+  --gap: clamp(18px, 2.6vw, 48px);
+  --max-width: 1200px;
+  --header-h: 84px;
   --transition: 520ms cubic-bezier(.2,.9,.3,1);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-/* Reset */
 
-html,body{
-  background:var(--bg);
-  color:var(--white);
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; 
-  -webkit-font-smoothing:antialiased}
-
-
-
-
-
-/* ================= RESET & VARIÁVEIS ================= */
-/* Reset mínimo */
-* { margin: 0; padding: 0; 
-  box-sizing: border-box; }
-
-:root{
-  --bg: #fdfdfd;
-  --text: #222;
-  --accent: #0073e6;
-
-  /* Ajuste estes valores se o seu header/midbar tiver outra altura */
-  --header-h: 00px;   /* altura estimada do header fixo (ajuste se necessário) */
-  --midbar-h: 56px;   /* altura estimada da midbar (se existir) */
-  --section-gap: 60px; /* espaço extra entre header e conteúdo */
+html, body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
-
+/* ================= BODY ================= */
 body {
-  height:100%;background:var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; -webkit-font-smoothing:antialiased;
-
-  min-height: 100vh;
-  line-height: 1.6;
-background: #000000;
- 
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+  line-height: 1.6;
 }
 
-/* Header */
+/* ================= HEADER ================= */
 header {
-
-  
+ 
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
-  background: #0e0e0e00;
+  height: var(--header-h);
+  background: #0e0e0ee6;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 3px 30px;
-  box-shadow: 0 0px 1px rgba(255, 255, 255, 0.265);
+  justify-content: space-between;
+  padding: 0 30px;
   z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 
+/* Logo */
 .logo img {
-  height: 80px;
+  height: 64px;
   display: block;
 }
 
-.logo{
-  margin-right:0px;
+/* ================= NAV DESKTOP ================= */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
-nav a {
-  margin: 0 06px;
-  text-decoration: none;
+.desktop-nav a {
   color: #fff;
- 
-  transition: 0.3s;
-   text-transform: uppercase;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color .3s;
 }
 
-nav a:hover {
-  color: #0077ff;
+.desktop-nav a:hover {
+  color: var(--accent);
 }
 
+/* ================= BOTÃO MOBILE ================= */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
 
-/* Header */
-
-
-/* Barra intermediária */
+/* ================= MIDBAR ================= */
 .midbar {
   width: 100%;
-  
   padding: 12px;
   display: flex;
   justify-content: center;
   background: #ffffff0c;
   position: sticky;
-  top: 89px ; /* altura do header */
+  top: 84px;
   z-index: 999;
 }
 
@@ -116,463 +100,211 @@ nav a:hover {
   margin: 0 30px;
   text-decoration: none;
   color: #ebebeb;
-  
   transition: 0.3s;
-  text-align: center;
 }
 
 .midbar nav a:hover {
   color: #df881f;
 }
 
-.midbar p{
-  color: #e6e5e5;
-}
-
-/* Barra intermediária */
-
-
-
-
-
- /* Menu  */
-
-
-/* ===========================
-   MENU MOBILE
-=========================== */
-.desktop-nav {
-  display: none;
-}
-
-.menu-toggle {
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  max-width: 300px;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
-  transition: right 0.3s ease-in-out;
-  padding: 2rem 1rem;
-  z-index: 1001;
-}
-
-.menu.active {
-  right: 0;
-}
-
-.close-btn {
-  font-size: 2.7rem;
-  background: none;
-  border: none;
-  color: #fff;
-  float: right;
-  cursor: pointer;
-}
-
-.menu ul {
-  list-style: none;
-  margin-top: 3rem;
-}
-
-.menu ul li {
-  margin: 1rem 0;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-.has-submenu > a::after {
-  content: " ▾";
-  float: right;
-}
-
-.submenu {
-  display: none;
-  margin-left: 1rem;
-  border-left: 2px solid #fff;
-  padding-left: 1rem;
-}
-
-.has-submenu.open .submenu {
-  display: block;
-}
-
-
-/* ================= CONTEÚDO / SEÇÕES ================= */
-.main, .site-wrap, main {
+/* ================= CONTEÚDO ================= */
+main, .main, .site-wrap {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding-top: calc(var(--header-h) + var(--section-gap));
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
+  padding: calc(var(--header-h) + 40px) 20px 0;
 }
 
 section {
-  padding: calc(var(--header-h) + var(--section-gap)) 20px 60px 20px;
+  padding: 60px 20px;
   max-width: 1000px;
   margin: 0 auto;
-  box-sizing: border-box;
-}
-
-
-
-.destaque .hero{
-  padding: calc(var(--header-h) + var(--section-gap)) 1px 1px 1px;
-  max-width: 10000px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-#apresentacao{
-  margin-top: 80px;
-
-
-} 
-
-#apresentacao h1 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  color: #ffffff;
   text-align: center;
-}
-#apresentacao p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #ffffff;
-  
-}
-
-#work-section, #contact-section { 
-  display: none;
-   text-align:center;
-   color: #ffffff;
-   }
-
-#work-section.active, #contact-section.active { 
-  display:block; 
 }
 
 /* ================= PROJETOS ================= */
-h2,.work-s-ection {
-  
-  color: #ffffff;
-  text-align: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
- 
-
 .projetos {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 1900px;
-  margin: 0 auto;
 }
 
 .card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
   background: #161616;
-  gap: 0px;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
 }
-.card.show { opacity: 1;
-   transform: translateY(0);
-   }
-.card:hover {
-   transform: scale(1.03);
-    transition: transform 0.2s ease;
-  }
 
-.card img { width:100%;
-   height:400px;
-    object-fit:cover;
-   }
-.card-content {
-   display:flex;
-  flex-direction:column; 
-  justify-content:center;
-   padding:10px; }
-   
-.card-content h3 { 
-  font-size:1rem;
-   margin: 12px 0 15px 0;
-    font-weight:600;
-    color: #ffffff;
-
-  }
-.card-content p {
-   font-size:1rem; 
-   color:#ffffff;
-    line-height:1.5;
-   }
-
-.card:nth-child(even) img {
-   order:2;
-   }
-.card:nth-child(even) .card-content {
-   order:1;
-
-   }
-
-
-section h1 .tetulo  .work-s-ection {
-  font-size: 20px;
-   margin-top: 2.0em;
-    margin-bottom: 2.0em;
-   }
-
-section{
-  text-align: center;
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
-/* ================= FORMULÁRIO ================= */
+
+.card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ================= FORM ================= */
 form {
-  margin-top: 60px;
   display: grid;
   gap: 15px;
   max-width: 1000px;
-  margin: 10px auto;
+  margin: 60px auto;
 }
-form input, form textarea {
+
+form input,
+form textarea {
   padding: 12px;
-  border: 1px solid #ccc;
   border-radius: 4px;
+  border: 1px solid #ccc;
 }
-form textarea { resize: none; }
+
 form button {
   padding: 12px;
-  border: none;
   background: var(--accent);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-form button:hover { background: #005bb5; }
-h2 { font-size: 1.5rem; margin-top: 60px; }
-
-
-
-
-.contact{
-  background-image: url('fundo.jpg'); /* coloque aqui sua imagem de fundo */
- 
-  color: #000000;
-  padding: 100px 40px;
-  text-align: center;
- 
-
-}
-
- 
-
-
-.contact-content {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  z-index: 1;
-}
-
-.contact-content h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.contact-content p {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #dcdcdc;
-}
-
-.contact-content a {
-  color: #4e4e4e;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.contact-btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 24px;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  background: linear-gradient(to right, #e1e1e1, #c9c9c9);
-  color: #000;
   border: none;
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
-  text-decoration: none;
-  letter-spacing: 1px;
-  box-shadow: 3px 3px 0 #000;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 #b05717;
-}
-
-/* Responsivo */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .contact-content h2 {
-    font-size: 2rem;
-  }
-  .contact-content p {
-    font-size: 1rem;
-  }
-  .contact-btn {
-    padding: 10px 20px;
-  }
-}
 
-
-
-/* =====================================================
-   OVERRIDES DE OTIMIZAÇÃO (SEM ALTERAR LAYOUT BASE)
-   Mobile + Instagram WebView
-===================================================== */
-
-/* Correções gerais WebView */
-@media (max-width: 480px) {
-
-  html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-     min-height: 100vh;
-     
+  .desktop-nav {
+    display: none;
   }
 
-  /* Evita quebra de altura em 100vh (bug do Instagram) */
-  .hero {
-    min-height: 70vh;
+  .menu-toggle {
+    display: block;
   }
 
-  /* Header: mantém no lugar, só reduz impacto visual */
-  header {
-    padding: 6px 16px;
-  }
-
-  .logo img {
-    max-height: 56px;
-    height: auto;
-    width: auto;
-  }
-
-  /* Menu mobile – apenas conforto visual */
   .menu {
-    padding-top: calc(var(--header-h) + 20px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(0,0,0,.95);
+    transform: translateX(100%);
+    transition: transform .4s ease;
+    padding: calc(var(--header-h) + 20px) 20px;
+    z-index: 1100;
   }
 
-  .menu ul li a {
-    font-size: 1rem;
+  .menu.active {
+    transform: translateX(0);
   }
 
-  /* HERO – não muda estrutura */
-  .hero-inner {
-    gap: 24px;
-  }
-
-  .hero-media {
-    min-height: 260px;
-  }
-
-  .hero-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Grid de projetos – evita imagem gigante */
-  .projects-grid {
+  .menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
     gap: 18px;
   }
 
-  .project-card {
-    min-height: 220px;
+  .menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
   }
 
-  .project-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 2.2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
   }
 
-  .project-copy {
-    padding: 18px;
+  .card {
+    grid-template-columns: 1fr;
   }
+}
+/* =====================================================
+   FIX DEFINITIVO — INSTAGRAM WEBVIEW + MOBILE
+===================================================== */
 
-  .project-copy h3 {
-    font-size: 16px;
-  }
+/* Viewport real (corrige 100vh bugado do Instagram) */
+:root {
+  --real-vh: 100vh;
+}
 
-  .project-copy p {
-    font-size: 13px;
-  }
-
-  /* Garante que nada invada o header */
-  section,
-  .section-inner,
-  .projects-grid {
-    position: relative;
-    z-index: 1;
-  }
-
-  header {
-    z-index: 1000;
+@supports (height: 100dvh) {
+  :root {
+    --real-vh: 100dvh;
   }
 }
 
-/* Mobile MUITO pequeno (Instagram comum) */
-@media (max-width: 380px) {
+/* Header estável (Instagram bug fix) */
+header {
 
-  .hero-title {
-    font-size: clamp(26px, 8vw, 36px);
-  }
+  will-change: transform;
+  backface-visibility: hidden;
+}
 
-  .hero-sub {
-    font-size: 13px;
-  }
+/* Menu mobile só existe no mobile */
+.menu {
+  display: none;
+}
 
-  .view-btn {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  .miniaturas img {
-    width: 60px;
-    height: 80px;
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+    height: var(--real-vh);
   }
 }
 
+/* Evita animação durante resize (estralo) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
 
+/* Instagram dispara resize falso — trava animação */
+@media (max-width: 768px) {
+  .menu,
+  header,
+  .desktop-nav {
+    transition-property: transform, opacity;
+  }
+}
 
+/* Nunca mostrar menu-toggle fora do mobile */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
 
+  .menu {
+    transform: translateX(100%) !important;
+  }
+}
+
+/* Previne abertura acidental ao redimensionar */
+.menu:not(.active) {
+  pointer-events: none;
+}
+
+.menu.active {
+  pointer-events: auto;
+}
