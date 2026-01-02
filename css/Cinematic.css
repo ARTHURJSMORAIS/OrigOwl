@@ -1,82 +1,38 @@
-/* style.css — Cinematic minimal inspirado no site do Lando Norris
-   Acento = #ffd400 (amarelo)
-*/
+/* ================= RESET GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-:root{
-  --bg:#000;
-  --panel:#0f0f10;
-  --muted:#9b9b9b;
-  --accent:#ffd400;
-  --white:#fff;
-  --gap: clamp(18px,2.6vw,48px);
-  --max-width:1200px;
-  --header-h:84px;
+:root {
+  --bg: #000;
+  --panel: #0f0f10;
+  --muted: #9b9b9b;
+  --accent: #ffd400;
+  --white: #fff;
+  --gap: clamp(18px, 2.6vw, 48px);
+  --max-width: 1200px;
+  --header-h: 84px;
   --transition: 520ms cubic-bezier(.2,.9,.3,1);
 }
 
-/* Reset */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{
-    background:var(--bg);
-    color:var(--white);
-    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-     -webkit-font-smoothing:antialiased;
-     
-  min-height: 60vh;
-  
-    }
+html, body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
 
-
-/* Header */
-header {
-
-  
-  top: 0;
-  right: 0;
-  width: 100%;
-  background: #0e0e0e70;
+/* ================= BODY ================= */
+body {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3px 30px;
-  box-shadow: 0 0px 1px rgba(255, 255, 255, 0.893);
-  z-index: 1000;
+  flex-direction: column;
+  line-height: 1.6;
 }
 
-.logo img {
-  height: 80px;
-  display: block;
-}
-
-.logo{
-  margin-right:0px;
-}
-
-nav a {
-  margin: 0 06px;
-  text-decoration: none;
-  color: #fff;
- 
-  transition: 0.3s;
-   text-transform: uppercase;
-}
-
-nav a:hover {
-  color: #0077ff;
-}
-
-
-/* Header */
-
-
-
-/* ===========================
-   MENU MOBILE
-=========================== */
-/* =========================
-   HEADER — DESKTOP FIRST
-========================= */
-
+/* ================= HEADER ================= */
 header {
   position: fixed;
   top: 0;
@@ -98,7 +54,7 @@ header {
   display: block;
 }
 
-/* NAV DESKTOP (PADRÃO) */
+/* ================= NAV DESKTOP ================= */
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -118,7 +74,7 @@ header {
   color: var(--accent);
 }
 
-/* BOTÃO HAMBÚRGUER — ESCONDIDO NO DESKTOP */
+/* ================= BOTÃO MOBILE ================= */
 .menu-toggle {
   display: none;
   background: none;
@@ -128,7 +84,28 @@ header {
   cursor: pointer;
 }
 
+/* ================= MIDBAR ================= */
+.midbar {
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  background: #ffffff0c;
+  position: sticky;
+  top: 84px;
+  z-index: 999;
+}
 
+.midbar nav a {
+  margin: 0 30px;
+  text-decoration: none;
+  color: #ebebeb;
+  transition: 0.3s;
+}
+
+.midbar nav a:hover {
+  color: #df881f;
+}
 
 /* HERO */
 .hero{
@@ -381,59 +358,72 @@ header {
 /* =========================
    MOBILE
 ========================= */
+/* =====================================================
+   FIX DEFINITIVO — INSTAGRAM WEBVIEW + MOBILE
+===================================================== */
+
+/* Viewport real (corrige 100vh bugado do Instagram) */
+:root {
+  --real-vh: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --real-vh: 100dvh;
+  }
+}
+
+/* Header estável (Instagram bug fix) */
+header {
+  position: fixed;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Menu mobile só existe no mobile */
+.menu {
+  display: none;
+}
 
 @media (max-width: 768px) {
-
-  /* Some com o menu desktop */
-  .desktop-nav {
-    display: none;
-  }
-
-  /* Aparece o hambúrguer */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* Menu lateral */
   .menu {
-    position: fixed;
-    inset: 0 0 0 auto;
-    width: 78%;
-    max-width: 320px;
-    background: rgba(0,0,0,.95);
-    transform: translateX(100%);
-    transition: transform .4s ease;
-    padding: calc(var(--header-h) + 20px) 20px;
-    z-index: 1100;
+    display: block;
+    height: var(--real-vh);
+  }
+}
+
+/* Evita animação durante resize (estralo) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* Instagram dispara resize falso — trava animação */
+@media (max-width: 768px) {
+  .menu,
+  header,
+  .desktop-nav {
+    transition-property: transform, opacity;
+  }
+}
+
+/* Nunca mostrar menu-toggle fora do mobile */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
   }
 
-  .menu.active {
-    transform: translateX(0);
+  .menu {
+    transform: translateX(100%) !important;
   }
+}
 
-  .menu ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
+/* Previne abertura acidental ao redimensionar */
+.menu:not(.active) {
+  pointer-events: none;
+}
 
-  .menu ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 15px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-size: 2.2rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-  }
+.menu.active {
+  pointer-events: auto;
 }
