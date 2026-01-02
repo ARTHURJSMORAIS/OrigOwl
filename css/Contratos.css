@@ -23,6 +23,7 @@ html, body {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ================= BODY ================= */
@@ -30,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   line-height: 1.6;
+  
 }
 
 /* ================= HEADER ================= */
@@ -367,7 +369,7 @@ form button {
   }
 
   .menu {
-    
+     position: fixed;
     top: 0;
     right: 0;
     width: 78%;
