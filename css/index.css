@@ -39,7 +39,7 @@ header {
   left: 0;
   width: 100%;
   height: var(--header-h);
-  background: #0e0e0ee6;
+  background: #000000;
   display: flex;
   align-items: center;
   justify-content: space-between;
