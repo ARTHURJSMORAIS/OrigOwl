@@ -124,10 +124,8 @@ header {
   letter-spacing: 0.3em;
   color: #666;
 }
-.strip {
-  width: 100%;
-  max-width: 100%;
-}
+
+
 
 
 /* STRIP */
@@ -142,17 +140,26 @@ header {
 .strip::-webkit-scrollbar {
   display: none; /* Chrome, Safari, mobile */
 }
-
-
-
-
-
-
 .strip {
+  position: relative;
+
   display: flex;
   gap: 8px;
-  padding: 4vw 0;
+
+  width: 100%;
+  padding: 4vh 6vw; /* ISSO RESOLVE O DESKTOP */
+
   overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  scroll-snap-type: x proximity;
+}
+
+.strip::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -184,18 +191,42 @@ header {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .strip a {
-    width: 80%;
-    height: 50%;
+  .strip {
+    padding: 4vh 4vw;
   }
-.strip {
-  width: 100%;
-  max-width: 100%;
-}
 
+ 
   .identity-grid {
     grid-template-columns: 1fr;
   }
+  
+
+
+.strip a {
+  flex: 0 0 auto;
+  width: clamp( 49vw, 260px);
+  height: 42vh;
+}
+
+
+.strip a:hover img {
+  transform: scale(1.03);
+}
+
+.hero {
+  min-height: 10vh;
+  padding: 12vh 6vw 6vw;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero h1 {
+  font-size: clamp(60px, 10vw, 10px);
+  line-height: 0.9;
+  font-weight: 800;
+}
+
+
 }
 
 
