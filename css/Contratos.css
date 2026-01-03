@@ -91,10 +91,10 @@ header {
    CABEÇALHO DE PÁGINA (CONTRATOS)
 =========================== */
 .policy-header {
-  background-color: #391a1a02;
+  background-color: #00000012;
   border-bottom: 1px solid #000;
   padding: 80px 40px;
-  margin-top: 100px;
+
 }
 
 .policy-container {
@@ -108,7 +108,7 @@ header {
 
 .policy-text h1 {
   font-family: 'Gotham Office' arial, sans-serif, ;
-  font-size: 2.3rem;
+  font-size: 5.3rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #000;
@@ -116,12 +116,48 @@ header {
 }
 
 .policy-text .last-revised {
+   
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-top: 20px;
-  color: #4e4e4e;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: -10px;
+  color: #252525;
 }
+
+.Contract {
+    
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0px;
+  color: #353535;
+   text-transform: uppercase;
+}
+
+
+.OriginStatement{
+    
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 0px;
+  color: #353535;
+  text-transform: uppercase;
+}
+
+
+.Lastupdated  {
+    font-family: 'Gotham Office' arial, sans-serif, ;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+ 
+  margin-top: 0px;
+  color: #4e4e4e;
+ 
+}
+
+
+
 
 .policy-logo img {
   width: 360px;
@@ -138,7 +174,7 @@ main {
 }
 
 .content {
-  max-width: 900px;
+  max-width: 2000px;
   margin: 4rem auto;
   padding: 0 1.5rem;
   flex-grow: 1;
@@ -149,6 +185,8 @@ main {
   text-transform: uppercase;
   font-size: 1.6rem;
   margin-bottom: 1rem;
+  color: #000;
+  font-weight: bold;
 }
 
 .intro p {
@@ -165,6 +203,7 @@ main {
   text-transform: uppercase;
   font-size: 1.2rem;
   letter-spacing: 1.5px;
+  color: #0e0d0d;
 }
 
 .section-divider {
@@ -242,69 +281,126 @@ main {
 
 
 /* ===========================
-   SEÇÃO DE CONTATO (KOJIMA STYLE)
+   SEÇÃO DE CONTATO CINEMATOGRÁFICA (KOJIMA STYLE)
 =========================== */
 .contact {
-  margin-top: auto;
-  flex-shrink: 0;
   position: relative;
   width: 100%;
-  background: url('website.jpg') center center / cover no-repeat;
-  display: block;
-  font-family: 'Arial', sans-serif;
+  min-height: 500px;
+  background: url('../img/The Godfather.jpg') center center / cover no-repeat;
+
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
 .contact-overlay {
-  background: rgba(0, 0, 0, 0.55);
+  
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  min-height: 240px;
+  /* overlay gradiente para profundidade */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.418), rgba(0,0,0,0.65));
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .contact-content {
-  color: #fff;
-  text-align: left;
-  max-width: 800px;
-  padding: 40px;
+  text-align: center;
+  color: #ffffff;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease-out forwards;
 }
 
+/* Título cinematográfico */
 .contact-content h2 {
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
+  font-size: 4rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.6);
+  color: #ffffff; /* cor leve da coruja */
 }
 
+/* Texto com destaque suave */
 .contact-content p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #ccc;
-  margin-bottom: 25px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
 }
 
-.contact-content a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: underline;
+.contact-content p a {
+  color: #ffcc66;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
+.contact-content p a:hover {
+  color: #ffe08c;
+}
+
+/* Botão sofisticado */
 .contact-btn {
-  background: #393939;
-  border: none;
-  color: #000000;
-  font-weight: 700;
-  padding: 10px 28px;
-  font-size: 14px;
+  background: transparent;
+  border: 2px solid #ffcc66;
+  color: #ffcc66;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 14px 36px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.contact-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 204, 102, 0.2);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.contact-btn:hover::before {
+  left: 100%;
 }
 
 .contact-btn:hover {
-  background: #c27629;
-  transform: translateY(-2px);
+  color: #fff;
+  border-color: #ffe08c;
+  box-shadow: 0 10px 30px rgba(255, 204, 102, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Animação de entrada */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===========================
@@ -313,21 +409,26 @@ main {
 
 /* Responsivo */
 @media (max-width: 900px) {
-  .policy-container {
+  .policy-text ,.policy-container,.policy-logo,.Contract{
     flex-direction: column;
     text-align: center;
+     align-items: center;
   }
 
-  .policy-text h1 {
-    font-size: 1.6rem;
+  .policy-text  h1 {
+    font-size: 3.6rem;
   }
-
+ .contact-content h2 {
+    font-size: 2.2rem;
+  }
   .policy-logo {
     margin-top: 30px;
+    
   }
 
   .policy-logo img {
     width: 280px;
+     align-items: center;
   }
 }
 
