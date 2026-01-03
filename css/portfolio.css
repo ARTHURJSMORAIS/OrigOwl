@@ -155,11 +155,6 @@ header {
   overflow-x: auto;
 }
 
-.strip a {
-  flex: 0 0 auto;
-  width: min(42vw, 780px);
-  height: 70vh;
-}
 
 .strip img {
   width: 100%;
@@ -358,3 +353,7 @@ header {
 .menu.active {
   pointer-events: auto;
 }
+
+
+
+
