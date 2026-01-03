@@ -419,7 +419,7 @@ header {
   display: flex;
   justify-content: center;
   gap: 20px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .footer-links a {
