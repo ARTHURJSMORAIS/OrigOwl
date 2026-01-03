@@ -13,6 +13,11 @@
 }
 
 html, body {
+    
+      width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
   background: #050505;
   color: #f2f2f2;
   font-family: Inter, system-ui, sans-serif;
@@ -119,8 +124,30 @@ header {
   letter-spacing: 0.3em;
   color: #666;
 }
+.strip {
+  width: 100%;
+  max-width: 100%;
+}
+
 
 /* STRIP */
+
+
+.strip {
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge antigo */
+}
+
+.strip::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, mobile */
+}
+
+
+
+
+
+
 .strip {
   display: flex;
   gap: 8px;
@@ -163,9 +190,13 @@ header {
 /* MOBILE */
 @media (max-width: 768px) {
   .strip a {
-    width: 80vw;
-    height: 50vh;
+    width: 80%;
+    height: 50%;
   }
+.strip {
+  width: 100%;
+  max-width: 100%;
+}
 
   .identity-grid {
     grid-template-columns: 1fr;
@@ -190,7 +221,7 @@ header {
      position: fixed;
     top: 0;
     right: 0;
-    width: 78%;
+    width: 100%;
     max-width: 320px;
     height: 100vh;
     background: rgba(0,0,0,.95);
@@ -234,62 +265,20 @@ header {
     grid-template-columns: 1fr;
   }
 }
-/* =====================================================
-   FIX DEFINITIVO — INSTAGRAM WEBVIEW + MOBILE
-===================================================== */
 
 
-/* Header estável (Instagram bug fix) */
-header {
- 
-  will-change: transform;
-  backface-visibility: hidden;
-}
 
-/* Menu mobile só existe no mobile */
-.menu {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .menu {
-    display: block;
-    height: var(--real-vh);
-  }
-}
-
-/* Evita animação durante resize (estralo) */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-  }
-}
-
-/* Instagram dispara resize falso — trava animação */
-@media (max-width: 768px) {
-  .menu,
-  header,
-  .desktop-nav {
-    transition-property: transform, opacity;
-  }
-}
-
-/* Nunca mostrar menu-toggle fora do mobile */
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none !important;
-  }
-
-  .menu {
-    transform: translateX(100%) !important;
-  }
-}
-
-/* Previne abertura acidental ao redimensionar */
-.menu:not(.active) {
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  opacity: 0;
   pointer-events: none;
+  z-index: 999;
+  transition: opacity .6s ease;
 }
 
-.menu.active {
-  pointer-events: auto;
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
 }
