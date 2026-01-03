@@ -419,6 +419,7 @@ header {
   display: flex;
   justify-content: center;
   gap: 20px;
+  font-size: 13px;
 }
 
 .footer-links a {
@@ -429,17 +430,6 @@ header {
 .footer-links a:hover {
   color: #fff;
 }
-
-.back-to-top {
-  background: none;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 6px 12px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.back-to-top:hover {
-  background: #fff;
-  color: #000;
+.footer-p{
+font-size: 11px;
 }
