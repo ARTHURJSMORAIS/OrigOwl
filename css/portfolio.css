@@ -238,16 +238,6 @@ header {
    FIX DEFINITIVO — INSTAGRAM WEBVIEW + MOBILE
 ===================================================== */
 
-/* Viewport real (corrige 100vh bugado do Instagram) */
-:root {
-  --real-vh: 100vh;
-}
-
-@supports (height: 100dvh) {
-  :root {
-    --real-vh: 100dvh;
-  }
-}
 
 /* Header estável (Instagram bug fix) */
 header {
