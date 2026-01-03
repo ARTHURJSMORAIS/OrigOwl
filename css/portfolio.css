@@ -206,6 +206,40 @@ header {
 
 
 
+/* =========================
+   ENTRADA ANIMADA (EDITORIAL)
+========================= */
+
+.strip {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.strip.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+  transition: opacity .6s ease;
+}
+
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
@@ -303,4 +337,24 @@ header {
   .desktop-nav {
     transition-property: transform, opacity;
   }
+}
+
+/* Nunca mostrar menu-toggle fora do mobile */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .menu {
+    transform: translateX(100%) !important;
+  }
+}
+
+/* Previne abertura acidental ao redimensionar */
+.menu:not(.active) {
+  pointer-events: none;
+}
+
+.menu.active {
+  pointer-events: auto;
 }
