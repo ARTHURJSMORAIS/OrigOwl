@@ -265,20 +265,42 @@ header {
     grid-template-columns: 1fr;
   }
 }
+/* =====================================================
+   FIX DEFINITIVO — INSTAGRAM WEBVIEW + MOBILE
+===================================================== */
 
 
-
-.page-transition {
-  position: fixed;
-  inset: 0;
-  background: #050505;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 999;
-  transition: opacity .6s ease;
+/* Header estável (Instagram bug fix) */
+header {
+ 
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
-.page-transition.active {
-  opacity: 1;
-  pointer-events: all;
+/* Menu mobile só existe no mobile */
+.menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+    height: var(--real-vh);
+  }
+}
+
+/* Evita animação durante resize (estralo) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* Instagram dispara resize falso — trava animação */
+@media (max-width: 768px) {
+  .menu,
+  header,
+  .desktop-nav {
+    transition-property: transform, opacity;
+  }
 }
