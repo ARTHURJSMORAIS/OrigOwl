@@ -185,9 +185,57 @@ header {
   gap: 60px;
 }
 
-.identity img {
+
+.identity-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.identity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+
+  max-width: 1200px;   /* ← CONTROLE DE TAMANHO */
+  margin: 0 auto;      /* ← centraliza */
+}
+
+
+.identity-item a {
+  text-decoration: none; /* tira o sublinhado */
+  color: inherit;        /* tira o azul */
+}
+
+
+.identity-item {
   width: 100%;
 }
+
+.identity-item a {
+  display: block;
+  width: 100%;
+}
+
+.identity-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 540px) {
+  .identity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -433,3 +481,7 @@ header {
 .footer-p{
 font-size: 11px;
 }
+
+
+
+
