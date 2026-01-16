@@ -301,9 +301,6 @@ header {
   transform: translateY(0);
 }
 
-.strip {
-  touch-action: pan-x;
-}
 
 
 .page-transition {
