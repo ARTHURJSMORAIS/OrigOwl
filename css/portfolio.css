@@ -13,11 +13,12 @@
 }
 
 html, body {
-    
+      overscroll-behavior-y: auto;
+  overscroll-behavior-x: none;
       width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  overscroll-behavior: none;
+
   background: #050505;
   color: #f2f2f2;
   font-family: Inter, system-ui, sans-serif;
@@ -227,7 +228,12 @@ header {
 
 
 
-
+@media (max-width: 768px) {
+  .page-transition {
+    pointer-events: none !important;
+    touch-action: none;
+  }
+}
 
 
 @media (max-width: 540px) {
@@ -295,6 +301,9 @@ header {
   transform: translateY(0);
 }
 
+.strip {
+  touch-action: pan-x;
+}
 
 
 .page-transition {
@@ -312,6 +321,11 @@ header {
   pointer-events: all;
 }
 
+body {
+  touch-action: pan-y;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 
 /* ================= MOBILE ================= */
