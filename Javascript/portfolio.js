@@ -52,3 +52,20 @@ const observer = new IntersectionObserver(
 );
 
 strips.forEach(strip => observer.observe(strip));
+
+window.addEventListener("pageshow", function () {
+  const transition = document.querySelector(".page-transition");
+  if (transition) {
+    transition.classList.remove("active");
+  }
+});
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    const transition = document.querySelector(".page-transition");
+    if (transition) {
+      transition.classList.remove("active");
+      transition.style.opacity = "0";
+      transition.style.pointerEvents = "none";
+    }
+  }
+});
