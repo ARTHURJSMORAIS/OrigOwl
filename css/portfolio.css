@@ -130,12 +130,7 @@ header {
    width: 100%;
   height: auto;
   display: block;
-  display: grid;
-
-  gap: 90px;
-
-  max-width: 700px;   /* ← CONTROLE DE TAMANHO */
-  margin: 0 auto;   
+  
 }
 
 
@@ -247,7 +242,7 @@ header {
 
 
 @media (max-width: 540px) {
-  .identity-grid {
+  .identity-grid{
     grid-template-columns: 1fr;
   }
 }
@@ -255,8 +250,9 @@ header {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .strip {
+  .Imagem.strip {
     padding: 4vh 4vw;
+    
   }
 
  
