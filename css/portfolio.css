@@ -126,7 +126,17 @@ header {
   color: #666;
 }
 
+.Imagem{
+   width: 100%;
+  height: auto;
+  display: block;
+  display: grid;
 
+  gap: 90px;
+
+  max-width: 700px;   /* ← CONTROLE DE TAMANHO */
+  margin: 0 auto;   
+}
 
 
 /* STRIP */
