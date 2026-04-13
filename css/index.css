@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-radius: 0 !important;
 }
 
 :root {
@@ -76,6 +77,41 @@ header {
   color: var(--accent);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-lang-toggle {
+  width: 100%;
+  text-align: left;
+  display: inline-flex;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.mobile-lang {
+  display: none;
+}
+
 /* ================= BOTÃO MOBILE ================= */
 .menu-toggle {
   display: none;
@@ -84,29 +120,6 @@ header {
   font-size: 1.8rem;
   color: #fff;
   cursor: pointer;
-}
-
-/* ================= MIDBAR ================= */
-.midbar {
-  width: 100%;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  background: #ffffff0c;
-  position: sticky;
-  top: 84px;
-  z-index: 999;
-}
-
-.midbar nav a {
-  margin: 0 30px;
-  text-decoration: none;
-  color: #ebebeb;
-  transition: 0.3s;
-}
-
-.midbar nav a:hover {
-  color: #df881f;
 }
 
 /* ================= CONTEÚDO ================= */
@@ -279,6 +292,61 @@ header {
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
+  }
+}
+
+.about-panel {
+  padding: 80px 20px 100px;
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.about-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 28px;
+}
+
+.about-card h2 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.about-card p {
+  color: #c7c7c7;
+  line-height: 1.8;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.about-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  padding: 14px 18px;
+  background: var(--accent);
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
   }
 }
 
