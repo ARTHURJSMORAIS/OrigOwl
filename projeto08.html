@@ -3,19 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Branding RetrÃ´ | Atomic Diner â€“ Identidade Completa  </title>
+  <title>Branding Retrô | Atomic Diner – Identidade Completa  </title>
   <link rel="stylesheet" href="css/projeto01.css">
     <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/cinematic-detail.css">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.umd.js"></script>
   <script src="Javascript/projeto.js" defer></script>
 <script src="Javascript/index.js" defer></script>
   <link rel="stylesheet" href="css/inicial.css">
   
-   <script src="Javascript/inicial.js" defer></script>
-  <script src="Javascript/cinematic-detail.js" defer></script>
+ <script src="Javascript/inicial.js" defer></script>
+  <script src="Javascript/lang.js" defer></script>
 </head>
 <body>
 <div class="page-transition"></div>
@@ -30,51 +26,61 @@
   <nav class="desktop-nav">
     <a href="inicial.html" data-i18n="nav_home">Home</a>
     <a href="index.html" data-i18n="nav_projects">PROJECTS</a>
-    <a href="sobre.html" data-i18n="nav_about">ABOUT</a>
   </nav>
 
-  <div class="header-actions">
-    <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language">EN</button>
-    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+  <div class="lang-selector desktop-lang">
+    <button type="button" class="lang-btn" data-lang="pt">PT</button>
+    <button type="button" class="lang-btn active" data-lang="en">EN</button>
   </div>
+
+  <button id="menu-toggle" class="menu-toggle">&#9776;</button>
 </header>
 
+<!-- MENU MOBILE -->
 <nav id="menu" class="menu">
-  <button id="close-btn" class="close-btn" type="button" aria-label="Close menu">×</button>
-  <button id="lang-toggle-mobile" class="lang-toggle menu-lang-toggle" type="button" aria-label="Toggle language">EN</button>
+  <button id="close-btn" class="close-btn">&times;</button>
+  <div class="mobile-lang">
+    <button type="button" class="lang-btn" data-lang="pt">PT</button>
+    <button type="button" class="lang-btn active" data-lang="en">EN</button>
+  </div>
   <ul>
     <li><a href="inicial.html" data-i18n="nav_home">Home</a></li>
     <li><a href="index.html" data-i18n="nav_projects">PROJECTS</a></li>
-    <li><a href="sobre.html" data-i18n="nav_about">ABOUT</a></li>
   </ul>
 </nav>
 
-  <!-- BARRA INTERMEDIÃRIA -->
-  
+  <!-- BARRA INTERMEDIÁRIA -->
+  <div class="midbar">
+    <nav>
+      <a href="index.html" class="back-to-work">← projetos</a>
 
-  <!-- SEÃ‡ÃƒO DO PROJETO -->
+     
+    </nav>
+  </div>
+
+  <!-- SEÇÃO DO PROJETO -->
   <section id="projeto">
-    <h1>Branding RetrÃ´ | Atomic Diner â€“ Identidade Completa</h1>
+    <h1>Branding Retrô | Atomic Diner – Identidade Completa</h1>
 
-    <p>A identidade visual do Atomic Diner nasceu a partir da ideia de resgatar o charme e a estÃ©tica das clÃ¡ssicas hamburguerias americanas dos anos 50. A proposta busca recriar nÃ£o apenas o sabor, mas tambÃ©m a experiÃªncia visual nostÃ¡lgica dessa Ã©poca, traduzida em um projeto vibrante, divertido e cheio de personalidade.</p>
+    <p>A identidade visual do Atomic Diner nasceu a partir da ideia de resgatar o charme e a estética das clássicas hamburguerias americanas dos anos 50. A proposta busca recriar não apenas o sabor, mas também a experiência visual nostálgica dessa época, traduzida em um projeto vibrante, divertido e cheio de personalidade.</p>
 
-    <p>O conceito foi desenvolvido com atenÃ§Ã£o aos detalhes, explorando cores, tipografias e ilustraÃ§Ãµes que reforÃ§am a atmosfera retrÃ´. Essa identidade foi pensada de forma completa, com um mascote carismÃ¡tico que personifica a marca, embalagens personalizadas que destacam os produtos e materiais grÃ¡ficos que comunicam de maneira clara e marcante. O resultado Ã© uma identidade visual que une tradiÃ§Ã£o e modernidade, tornando a marca reconhecÃ­vel e memorÃ¡vel.</p>
+    <p>O conceito foi desenvolvido com atenção aos detalhes, explorando cores, tipografias e ilustrações que reforçam a atmosfera retrô. Essa identidade foi pensada de forma completa, com um mascote carismático que personifica a marca, embalagens personalizadas que destacam os produtos e materiais gráficos que comunicam de maneira clara e marcante. O resultado é uma identidade visual que une tradição e modernidade, tornando a marca reconhecível e memorável.<p>
 
     <div class="grid-imagens">
-      <img src="projeto08.img/01.jpg" alt="Atomic Diner">
+      <img src="projeto08.img/01.jpg" alt=" Atomic Diner>
       
     </div>
 
     <div class="grid-imagens">
      <img src="projeto08.img/02.jpg" alt=" Atomic Diner">
     </div>
-     <p> A paleta Ã© vibrante e retrÃ´, com laranja, amarelo mostarda, verde petrÃ³leo e creme. Essa combinaÃ§Ã£o traz energia e ao mesmo tempo reforÃ§a o clima vintage.</P>
+     <p> A paleta é vibrante e retrô, com laranja, amarelo mostarda, verde petróleo e creme. Essa combinação traz energia e ao mesmo tempo reforça o clima vintage.</P>
 
 
  <div class="grid-imagens">
    <img src="projeto08.img/03.gif" alt=" paleta">
  </div>
- <p>A escolha das fontes remete aos cartazes e anÃºncios da dÃ©cada de 50, com letras arredondadas e cheias de presenÃ§a. A fonte secundÃ¡ria, mais neutra, garante equilÃ­brio e legibilidade.</p>
+ <p>A escolha das fontes remete aos cartazes e anúncios da década de 50, com letras arredondadas e cheias de presença. A fonte secundária, mais neutra, garante equilíbrio e legibilidade.</p>
  <div class="grid-imagens">
   <img src="projeto08.img/04.png" alt=" Atomic Diner">
  </div>
@@ -83,7 +89,7 @@
       <img src="projeto08.img/05.png" alt=" Atomic Dinerr">
 </div>
 
-<p>O chef simpÃ¡tico com barba branca e um hambÃºrguer na mÃ£o Ã© o coraÃ§Ã£o da marca. Ele transmite proximidade, confianÃ§a e nostalgia, resgatando o imaginÃ¡rio das lanchonetes clÃ¡ssicas.</p>
+<p>O chef simpático com barba branca e um hambúrguer na mão é o coração da marca. Ele transmite proximidade, confiança e nostalgia, resgatando o imaginário das lanchonetes clássicas.</p>
 
 <div class="grid-imagens">
       <img src="projeto08.img/06.png" alt=" Atomic Diner">
@@ -94,7 +100,7 @@
 </div>
 
 
-<p>AlÃ©m de estar presente nas embalagens, uniformes e materiais grÃ¡ficos, a identidade do Atomic Diner tambÃ©m foi pensada para produtos exclusivos que podem ser comercializados no site da prÃ³pria hamburgueria. Essa aplicaÃ§Ã£o traz o mascote completo, acompanhado do logotipo e da paleta de cores oficiais, em um estilo proporcional e versÃ¡til. O objetivo Ã© expandir a presenÃ§a da marca para alÃ©m do espaÃ§o fÃ­sico, transformando a identidade visual em itens de lifestyle, como camisetas, canecas e pÃ´steres, fortalecendo a conexÃ£o emocional com o pÃºblico.</p>
+<p>Além de estar presente nas embalagens, uniformes e materiais gráficos, a identidade do Atomic Diner também foi pensada para produtos exclusivos que podem ser comercializados no site da própria hamburgueria. Essa aplicação traz o mascote completo, acompanhado do logotipo e da paleta de cores oficiais, em um estilo proporcional e versátil. O objetivo é expandir a presença da marca para além do espaço físico, transformando a identidade visual em itens de lifestyle, como camisetas, canecas e pôsteres, fortalecendo a conexão emocional com o público.</p>
 <div class="grid-imagens">
       <img src="projeto08.img/07.jpg" alt=" Atomic Diner">
 </div>
@@ -125,23 +131,16 @@
 
   </section>
 
-  <!-- RODAPÃ‰ -->
+  <!-- RODAPÉ -->
   <footer class="footer">
-    <button class="back-to-top">â†‘ BACK TO TOP</button>
+    <button class="back-to-top">↑ BACK TO TOP</button>
     <div class="social">
       <a href="https://wa.me/5548988654207"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="X"></a>
       <a href="https://www.instagram.com/js.moraes_/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"></a>
       <a href="https://www.linkedin.com/in/arthur-morais-a95030381/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="YouTube"></a>
       <a href="https://www.behance.net/Amorais_"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/behance.svg" alt="YouTube"></a>
     </div>
-    <ul class="footer-links">
-
-      <li><a href="Contratos.html">Contrato</a></li>
-       <li><a href="Origem.html">Origem</a></li>
-    </ul>
    <p>&copy; 2025 OrigOwl. Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>
-
-

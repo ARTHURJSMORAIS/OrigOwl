@@ -160,10 +160,8 @@
   }
 }
 .video-banner {
- 
   overflow: hidden;
-  border-radius: 12px;
-  
+  background: #000;
 }
 .video-banner video {
   width: 100%;

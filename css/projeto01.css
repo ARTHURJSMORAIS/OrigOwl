@@ -136,8 +136,41 @@ header, .project-content {
   cursor: pointer;
 }
 
-.variation-thumb img {
+.variation-thumb img,
+.gallery-thumb img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-thumb {
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.gallery-thumb:hover img,
+.variation-thumb:hover img {
+  transform: scale(1.02);
+}
+
+.project-grid-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.project-grid-images button {
+  overflow: hidden;
+}
+
+.project-grid-images img {
   transition: transform 0.25s ease;
+}
+
+.project-grid-images img:hover {
+  transform: scale(1.02);
 }
 
 .variation-thumb:hover img {
@@ -154,6 +187,10 @@ header, .project-content {
   padding: 20px;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .project-modal.active {
   display: flex;
 }
@@ -167,8 +204,8 @@ header, .project-content {
 .project-modal-window {
   position: relative;
   width: min(980px, 100%);
-  max-height: min(90vh, 100%);
-  overflow: hidden;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
   z-index: 1;
   display: grid;
   gap: 18px;
@@ -187,8 +224,13 @@ header, .project-content {
   cursor: zoom-in;
 }
 
+.modal-image:hover {
+  transform: scale(1.05);
+}
+
 .modal-image.zoomed {
-  transform: scale(1.2);
+  transform: scale(1.8);
+  cursor: zoom-out;
 }
 
 .modal-nav {
@@ -208,9 +250,9 @@ header, .project-content {
 .modal-nav.next { right: 12px; }
 
 .modal-close {
-  position: absolute;
+  position: sticky;
   top: 12px;
-  right: 12px;
+  justify-self: end;
   width: 44px;
   height: 44px;
   border: 1px solid var(--border);
@@ -218,6 +260,7 @@ header, .project-content {
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
+  z-index: 2;
 }
 
 .modal-info {
