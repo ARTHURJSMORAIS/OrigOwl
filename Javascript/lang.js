@@ -36,20 +36,23 @@
 function applyTranslations(lang) {
   document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
 
+  // 🔹 textos simples
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-      el.innerHTML = translations[lang][key];
+    if (translations[lang]?.[key]) {
+      el.textContent = translations[lang][key];
     }
   });
 
+  // 🔹 textos customizados
   document.querySelectorAll("[data-en][data-pt]").forEach(el => {
     const value = el.dataset[lang];
     if (value !== undefined) {
-      el.innerHTML = value;
+      el.textContent = value;
     }
   });
 
+  // 🔹 botões de idioma
   document.querySelectorAll("#lang-toggle, #lang-toggle-mobile").forEach(btn => {
     btn.textContent = lang.toUpperCase();
     btn.dataset.lang = lang;
@@ -66,13 +69,14 @@ function setLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const currentLang = localStorage.getItem("lang") || "en";
-  setLanguage(currentLang);
+  let currentLang = localStorage.getItem("lang") || "en";
+
+  applyTranslations(currentLang);
 
   document.querySelectorAll("#lang-toggle, #lang-toggle-mobile").forEach(btn => {
     btn.addEventListener("click", () => {
-      const nextLang = getNextLanguage(btn.dataset.lang || currentLang);
-      setLanguage(nextLang);
+      currentLang = getNextLanguage(currentLang);
+      setLanguage(currentLang);
     });
   });
 });

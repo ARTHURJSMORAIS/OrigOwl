@@ -4,46 +4,43 @@
 
   const titleEl = section.querySelector('h1');
   const paragraphEls = Array.from(section.querySelectorAll('p')).filter(p => p.textContent.trim());
-  const imageEls = Array.from(section.querySelectorAll('.grid-imagens img')).filter(img => img.src);
-  const videoContainer = section.querySelector('.video-container');
-  const images = imageEls.map(img => ({ src: img.src, alt: img.alt || titleEl?.textContent.trim() || 'Project image' }));
 
   const title = titleEl?.textContent.trim() || 'OrigOwl Project';
+
+  const getImages = (selector) => {
+    return Array.from(section.querySelectorAll(selector)).map(img => ({
+      src: img.src,
+      alt: img.alt || title
+    }));
+  };
+
+  const finalImages = getImages('.grid-final img');
+  const processImages = getImages('.grid-process img');
+  const sketchImages = getImages('.grid-sketch img');
+  const referencesImages = getImages('.grid-references img');
+  const variationsImages = getImages('.grid-variations img');
+
+  const videoContainer = section.querySelector('.video-container');
+
   const summary = paragraphEls[0]?.textContent.trim() || '';
-  const processText = paragraphEls[1]?.textContent.trim() || '';
-  const sketchText = paragraphEls[2]?.textContent.trim() || '';
-  const referencesText = paragraphEls[3]?.textContent.trim() || '';
-  const descriptionText = paragraphEls.length > 1 ? paragraphEls.slice(1).map(p => p.textContent.trim()).join(' ') : summary;
+  const descriptionText = paragraphEls.length > 1
+    ? paragraphEls.slice(1).map(p => p.textContent.trim()).join(' ')
+    : summary;
+
   const hasVideo = Boolean(videoContainer);
   const videoMarkup = hasVideo ? videoContainer.outerHTML : '';
 
   const tabButtons = [
-    '<button class="tab-button active" data-tab="final" data-i18n="tab_final">Final</button>',
-    '<button class="tab-button" data-tab="process" data-i18n="tab_process">Process</button>',
-    '<button class="tab-button" data-tab="sketch" data-i18n="tab_sketch">Sketch</button>',
-    '<button class="tab-button" data-tab="references" data-i18n="tab_references">References</button>',
-    '<button class="tab-button" data-tab="variations" data-i18n="tab_variations">Variations</button>'
+    '<button class="tab-button active" data-tab="final">Final</button>',
+    '<button class="tab-button" data-tab="process">Process</button>',
+    '<button class="tab-button" data-tab="sketch">Sketch</button>',
+    '<button class="tab-button" data-tab="references">References</button>',
+    '<button class="tab-button" data-tab="variations">Variations</button>'
   ];
 
   if (hasVideo) {
-    tabButtons.push('<button class="tab-button" data-tab="video" data-i18n="tab_video">Video</button>');
+    tabButtons.push('<button class="tab-button" data-tab="video">Video</button>');
   }
-
-  const imageGalleryMarkup = images.length
-    ? images.map((img, index) => `
-        <button class="gallery-thumb" type="button" data-index="${index}" aria-label="Open image ${index + 1}">
-          <img src="${img.src}" alt="${img.alt}">
-        </button>
-      `).join('')
-    : '<div class="project-copy" data-i18n="no_variations">No additional variations available.</div>';
-
-  const variationsMarkup = images.length > 1
-    ? images.map((img, index) => `
-        <button class="variation-thumb" type="button" data-index="${index}" aria-label="View variation ${index + 1}">
-          <img src="${img.src}" alt="${img.alt}">
-        </button>
-      `).join('')
-    : `<div class="project-copy" data-i18n="no_variations">No additional variations available.</div>`;
 
   section.innerHTML = `
     <div class="project-content">
@@ -57,38 +54,59 @@
       </div>
 
       <div class="tab-panel active" data-panel="final">
-        <div class="project-media">
-          <div class="project-image-frame" aria-label="Open image modal">
-            <img class="gallery-image" src="${images[0]?.src || ''}" alt="${images[0]?.alt || title}">
-          </div>
+        <div class="project-image-frame">
+          <img class="gallery-image" src="${finalImages[0]?.src || ''}">
         </div>
       </div>
 
       <div class="tab-panel" data-panel="process">
         <div class="project-grid-images">
-          ${imageGalleryMarkup}
+          ${processImages.map((img, i) => `
+            <button class="gallery-thumb" data-index="${i}">
+              <img src="${img.src}" alt="${img.alt}">
+            </button>
+          `).join('')}
         </div>
       </div>
 
       <div class="tab-panel" data-panel="sketch">
         <div class="project-grid-images">
-          ${imageGalleryMarkup}
+          ${sketchImages.map((img, i) => `
+            <button class="gallery-thumb" data-index="${i}">
+              <img src="${img.src}" alt="${img.alt}">
+            </button>
+          `).join('')}
         </div>
       </div>
 
       <div class="tab-panel" data-panel="references">
         <div class="project-grid-images">
-          ${imageGalleryMarkup}
+          ${referencesImages.map((img, i) => `
+            <button class="gallery-thumb" data-index="${i}">
+              <img src="${img.src}" alt="${img.alt}">
+            </button>
+          `).join('')}
         </div>
       </div>
 
       <div class="tab-panel" data-panel="variations">
         <div class="project-gallery-grid">
-          ${variationsMarkup}
+          ${variationsImages.map((img, i) => `
+            <button class="variation-thumb" data-index="${i}">
+              <img src="${img.src}" alt="${img.alt}">
+            </button>
+          `).join('')}
         </div>
       </div>
 
-      ${hasVideo ? `<div class="tab-panel" data-panel="video"><div class="project-video-panel">${videoMarkup}</div></div>` : ''}
+      ${hasVideo ? `
+        <div class="tab-panel" data-panel="video">
+          <div class="project-video-panel">
+            ${videoMarkup}
+          </div>
+        </div>
+      ` : ''}
+
     </div>
   `;
 
@@ -97,11 +115,11 @@
   modal.innerHTML = `
     <div class="project-modal-backdrop"></div>
     <div class="project-modal-window">
-      <button class="modal-close" type="button" aria-label="Close modal">×</button>
+      <button class="modal-close">×</button>
       <div class="modal-media">
-        <button class="modal-nav prev" type="button" aria-label="Previous image">←</button>
-        <img class="modal-image" src="${images[0]?.src || ''}" alt="${images[0]?.alt || title}">
-        <button class="modal-nav next" type="button" aria-label="Next image">→</button>
+        <button class="modal-nav prev">←</button>
+        <img class="modal-image" src="${finalImages[0]?.src || ''}">
+        <button class="modal-nav next">→</button>
       </div>
       <div class="modal-info">
         <h2>${title}</h2>
@@ -114,116 +132,79 @@
   const tabButtonsEls = section.querySelectorAll('.tab-button');
   const tabPanels = section.querySelectorAll('.tab-panel');
   const galleryImage = section.querySelector('.gallery-image');
-  const gridThumbButtons = section.querySelectorAll('.gallery-thumb');
-  const prevBtn = section.querySelector('.gallery-nav.prev');
-  const nextBtn = section.querySelector('.gallery-nav.next');
-  const variationButtons = section.querySelectorAll('.variation-thumb');
-  const modalBackdrop = modal.querySelector('.project-modal-backdrop');
   const modalImage = modal.querySelector('.modal-image');
-  const modalClose = modal.querySelector('.modal-close');
-  const modalPrev = modal.querySelector('.modal-nav.prev');
-  const modalNext = modal.querySelector('.modal-nav.next');
 
   let currentIndex = 0;
+  let currentArray = finalImages;
   let modalNavEnabled = false;
 
   const updateGallery = () => {
-    if (!images.length) return;
-    const current = images[currentIndex];
-    if (galleryImage) {
-      galleryImage.src = current.src;
-      galleryImage.alt = current.alt;
-    }
+    if (!currentArray.length) return;
+    const current = currentArray[currentIndex];
+    galleryImage.src = current.src;
     modalImage.src = current.src;
-    modalImage.alt = current.alt;
   };
 
   const setActiveTab = key => {
     tabButtonsEls.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === key));
     tabPanels.forEach(panel => panel.classList.toggle('active', panel.dataset.panel === key));
-  };
 
-  const openModal = (enableNav = false) => {
-    modalNavEnabled = enableNav && images.length > 1;
-    modal.classList.add('active');
-    document.body.classList.add('modal-open');
-    if (modalPrev && modalNext) {
-      modalPrev.style.display = modalNavEnabled ? 'block' : 'none';
-      modalNext.style.display = modalNavEnabled ? 'block' : 'none';
-    }
-  };
+    if (key === "final") currentArray = finalImages;
+    if (key === "process") currentArray = processImages;
+    if (key === "sketch") currentArray = sketchImages;
+    if (key === "references") currentArray = referencesImages;
+    if (key === "variations") currentArray = variationsImages;
 
-  const closeModal = () => {
-    modal.classList.remove('active');
-    document.body.classList.remove('modal-open');
-    modalImage.classList.remove('zoomed');
-    modalImage.style.transformOrigin = 'center center';
-  };
-
-  const prevImage = () => {
-    if (!modalNavEnabled || !images.length) return;
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    currentIndex = 0;
     updateGallery();
-  };
-
-  const nextImage = () => {
-    if (!modalNavEnabled || !images.length) return;
-    currentIndex = (currentIndex + 1) % images.length;
-    updateGallery();
-  };
-
-  const toggleZoom = () => {
-    if (!modalImage) return;
-    modalImage.classList.toggle('zoomed');
-  };
-
-  const updateZoomOrigin = e => {
-    if (!modalImage.classList.contains('zoomed')) return;
-    const rect = modalImage.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    const x = ((clientX - rect.left) / rect.width) * 100;
-    const y = ((clientY - rect.top) / rect.height) * 100;
-    modalImage.style.transformOrigin = `${x}% ${y}%`;
   };
 
   tabButtonsEls.forEach(btn => btn.addEventListener('click', () => setActiveTab(btn.dataset.tab)));
-  galleryImage?.addEventListener('click', () => openModal(false));
-  gridThumbButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const index = Number(button.dataset.index);
-      if (!Number.isNaN(index)) {
-        currentIndex = index;
-        updateGallery();
-        openModal(true);
-      }
-    });
+
+  // 🔥 FINAL (imagem principal)
+  galleryImage?.addEventListener('click', () => {
+    if (currentArray === finalImages) {
+      modalNavEnabled = finalImages.length > 1;
+      modal.classList.add('active');
+      document.body.classList.add('modal-open');
+    }
   });
-  variationButtons.forEach(button => {
+
+  // 🔥 THUMBS (AGORA CORRETO)
+  document.querySelectorAll('.gallery-thumb, .variation-thumb').forEach(button => {
     button.addEventListener('click', () => {
-      const index = Number(button.dataset.index);
-      if (!Number.isNaN(index)) {
-        currentIndex = index;
-        updateGallery();
-        openModal(true);
+      currentIndex = Number(button.dataset.index);
+      updateGallery();
+
+      // 👉 SÓ FINAL abre modal
+      if (currentArray === finalImages) {
+        modalNavEnabled = currentArray.length > 1;
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
       }
     });
   });
 
-  modalBackdrop?.addEventListener('click', closeModal);
-  modalClose?.addEventListener('click', closeModal);
-  modalPrev?.addEventListener('click', prevImage);
-  modalNext?.addEventListener('click', nextImage);
-  modalImage?.addEventListener('click', toggleZoom);
-  modalImage?.addEventListener('mousemove', updateZoomOrigin);
-  modalImage?.addEventListener('touchmove', updateZoomOrigin, { passive: true });
+  modal.querySelector('.modal-close').onclick = () => {
+    modal.classList.remove('active');
+    document.body.classList.remove('modal-open');
+  };
 
-  window.addEventListener('keydown', event => {
-    if (!modal.classList.contains('active')) return;
-    if (event.key === 'Escape') closeModal();
-    if (event.key === 'ArrowLeft') prevImage();
-    if (event.key === 'ArrowRight') nextImage();
-  });
+  modal.querySelector('.modal-nav.prev').onclick = () => {
+    if (!modalNavEnabled) return;
+    currentIndex = (currentIndex - 1 + currentArray.length) % currentArray.length;
+    updateGallery();
+  };
+
+  modal.querySelector('.modal-nav.next').onclick = () => {
+    if (!modalNavEnabled) return;
+    currentIndex = (currentIndex + 1) % currentArray.length;
+    updateGallery();
+  };
+
+  modalImage.onclick = () => {
+    modalImage.classList.toggle('zoomed');
+  };
 
   updateGallery();
 }

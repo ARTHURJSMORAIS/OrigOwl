@@ -187,7 +187,64 @@ header {
   
 }
 
+/* ================= HEADER FIX MOBILE ================= */
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* GARANTE POSIÇÃO CORRETA */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  header {
+    padding: 0 16px;
+  }
+
+  /* ESCONDE NAV DESKTOP */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* ORGANIZA DIREITA */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* BOTÃO IDIOMA */
+  .lang-toggle {
+    position: relative;
+    z-index: 1001;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  /* BOTÃO MENU */
+  .menu-toggle {
+    display: block;
+    font-size: 1.6rem;
+    z-index: 1002;
+  }
+
+  /* GARANTE QUE NÃO SOBREPOR */
+  #lang-toggle {
+    order: 1;
+  }
+
+  #menu-toggle {
+    order: 2;
+  }
+}
 /* STRIP */
 
 
@@ -467,7 +524,24 @@ header {
     height: var(--real-vh);
   }
 }
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 320px;
 
+  height: 100dvh; /* 🔥 CORREÇÃO REAL */
+  min-height: 100vh; /* fallback */
+
+  background: rgba(0,0,0,.95);
+  transform: translateX(100%);
+  transition: transform .4s ease;
+  padding: calc(var(--header-h) + 20px) 20px;
+  z-index: 1100;
+
+  overflow-y: auto; /* 👈 ESSENCIAL */
+}
 /* Evita animação durante resize (estralo) */
 @media (prefers-reduced-motion: reduce) {
   * {
