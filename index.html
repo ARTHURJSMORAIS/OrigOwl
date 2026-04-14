@@ -44,17 +44,16 @@
   </ul>
 </nav>
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
   <div class="hero-content">
     <h1>
-      <span>EXPERIMENTAL</span>
-      <span>VISUAL</span>
-      <span>PRACTICE</span>
+      <span>CONCEPT</span>
+      <span>VISION</span>
     </h1>
 
-    <p class="hero-sub">
-      Art Direction | Visual Development  
-      Cinematic & conceptual imagery available for freelance
-    </p>
+    <p>Visual storytelling and cinematic composition</p>
   </div>
 </section>
 
@@ -71,12 +70,22 @@
       <img src="projeto17.img/Oppenheimer.jpg">
     </a>
 
+    <a href="projeto12.html" class="project-card">
+      <img src="projeto20.img/Odyssey copiar.jpg">
+    </a>
     <a href="projeto15.html" class="project-card">
       <img src="projeto15.img/Interestelar copiar.jpg">
     </a>
 
     <a href="projeto12.html" class="project-card">
       <img src="projeto12.img/1917 01.jpg">
+    </a>
+
+    
+
+    
+    <a href="projeto12.html" class="project-card">
+      <img src="projeto20.img/william lima DESIGN 03.jpg">
     </a>
   </div>
 
@@ -103,16 +112,14 @@
 
   <div class="section-label">Concept Art</div>
   <div class="projects-grid">
-    <!-- cards -->
+     <a href="projeto06.html" class="project-card">
+      <img src="projeto19.img/Matrix copiar.jpg">
+    </a>]
+     <a href="projeto06.html" class="project-card">
+      <img src="projeto18.img/Ghost in the Shell 02 copiar.jpg">
   </div>
 
-  <div class="section-label">Character</div>
-  <div class="projects-grid">
-    <!-- cards -->
-  </div>
-
-<section class="projects">
-  <div class="projects-grid">
+ 
 
 
   </div>
@@ -145,7 +152,16 @@
     </div>
    <p class="footer-p">&copy; 2025 OrigOwl. Todos os direitos reservados.</p>
   </footer>
+<script>
+window.addEventListener("scroll", () => {
+  const bg = document.querySelector(".hero-bg");
+  const scroll = window.scrollY;
 
+  if (bg) {
+    bg.style.transform = `scale(1.1) translateY(${scroll * 0.2}px)`;
+  }
+});
+</script>
 </body>
 </html>
 
