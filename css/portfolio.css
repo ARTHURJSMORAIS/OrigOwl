@@ -466,10 +466,10 @@ font-size: 11px;
 
 
 .hero {
-  min-height: 100PX;
+  min-height: 00PX;
   display: flex;
   align-items: flex-end;
-  padding: 120px 6vw 80px;
+  padding: 110px 2vw 3px;
 }
 
 .hero-content {
@@ -569,7 +569,7 @@ font-size: 11px;
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
+  gap: 4px;
 }
 
 /* RESPONSIVO */
@@ -581,7 +581,7 @@ font-size: 11px;
 
 .section-label {
   position: relative;
-  padding-top: 14px;
+  padding-top: 0px;
 }
 
 .section-label::before {
