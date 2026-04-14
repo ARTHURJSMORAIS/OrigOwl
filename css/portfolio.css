@@ -543,3 +543,53 @@ font-size: 11px;
     animation-duration: 25s;
   }
 }
+
+
+
+.projects-section {
+  padding: 80px 02vw;
+}
+
+/* TÍTULO DA SEÇÃO (bem fino, elegante) */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+
+  margin: 40px 0 12px;
+}
+
+/* PRIMEIRO NÃO PRECISA DE ESPAÇO GRANDE */
+.section-label:first-of-type {
+  margin-top: 0;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+/* RESPONSIVO */
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.section-label {
+  position: relative;
+  padding-top: 14px;
+}
+
+.section-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
